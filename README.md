@@ -1,4 +1,4 @@
-<h1>Pizzeria Backend</h1> FindZach Tech 2021
+<h1>Pizzeria Backend - >> Zach Smith 2021 <<</h1> 
 <h5>This is the backend for 'Traceys Pizza' which is a mock name for any pizza business. The goal is to create a beautiful and functional application that small pizza chains can leverage for free.</h5>
 
 
