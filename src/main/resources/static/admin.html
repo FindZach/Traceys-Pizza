@@ -1,0 +1,62 @@
+<?PHP ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Portal Page</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="spinner">
+
+
+    <div class="row">
+        <div class="cell-12">
+            <h1>Traceys Pizza</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="cell-12">
+            <canvas id="pizza"></canvas>
+        </div>
+    </div>
+
+</div>
+
+<div id="header">
+    <center><h2>Administration Page</h2></center>
+
+    <div class="row">
+        <div class="cell 1">
+            <button class="button secondary" onclick="btnClicked()" id="btn">Secondary</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.metroui.org.ua/v4.3.2/js/metro.min.js"></script>
+<script type="text/javascript" src="js/spinner.js"></script>
+<script>
+    $("#header").hide();
+
+
+setTimeout(function(){
+   $('#spinner').fadeOut(1000, function() {
+   $("#header").show();
+  });
+}, 1000);
+
+function btnClicked() {
+    $.ajax({
+        url: "http://localhost:8080/api/v1/order"
+    }).then(function(data) {
+    });
+}
+</script>
+</body>
+</html>
