@@ -25,11 +25,11 @@ public class PrinterServiceImpl implements PrinterService {
         p.setText("Rochesters Favorite Pizza");
         p.newLine();
         p.addLineSeperator();
-        p.setText("go fuck urself bing bong");
+        p.setText("bing bong");
         p.newLine();
         p.addLineSeperator();
 
-        p.feed((byte)2);
+        p.feed((byte)5);
         p.finit();
 
         PrinterOptions.feedPrinter(p.finalCommandSet().getBytes());

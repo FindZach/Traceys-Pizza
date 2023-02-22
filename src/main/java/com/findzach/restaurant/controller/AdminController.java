@@ -15,6 +15,7 @@ public class AdminController {
 
     @GetMapping("/admin")
     public String viewAdminPage() {
+
         return "admin";
     }
 
