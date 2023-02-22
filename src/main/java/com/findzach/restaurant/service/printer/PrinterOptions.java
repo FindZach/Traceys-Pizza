@@ -1,5 +1,7 @@
 package com.findzach.restaurant.service.printer;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.print.*;
 import javax.print.attribute.AttributeSet;
 import javax.print.attribute.HashPrintServiceAttributeSet;
@@ -9,6 +11,7 @@ import javax.print.attribute.standard.PrinterName;
  * @author Zach S <zach@findzach.com>
  * @since 9/17/2021
  */
+@Slf4j
 public class PrinterOptions {
     String commandSet = "";
 
@@ -20,7 +23,14 @@ public class PrinterOptions {
 
     public static boolean feedPrinter(byte[] b) {
         try {
-            AttributeSet attrSet = new HashPrintServiceAttributeSet(new PrinterName("POS-58", null)); //POS-58
+            AttributeSet attrSet = new HashPrintServiceAttributeSet(new PrinterName("POS-58-System", null)); //POS-58
+
+
+            PrintService[] printers = PrintServiceLookup.lookupPrintServices(null, null);
+
+            for (PrintService printer: printers) {
+                log.info("Available Printer: " + printer.getName());
+            }
 
             DocPrintJob job = PrintServiceLookup.lookupPrintServices(null, attrSet)[0].createPrintJob();
             //PrintServiceLookup.lookupDefaultPrintService().createPrintJob();
@@ -31,7 +41,7 @@ public class PrinterOptions {
 
             job.print(doc, null);
             pjDone.waitForDone();
-            System.out.println("Done !");
+            System.out.println("Done Thanks !");
         } catch (javax.print.PrintException pex) {
             System.out.println("Printer Error " + pex.getMessage());
             return false;
