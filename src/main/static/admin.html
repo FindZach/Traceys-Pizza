@@ -17,7 +17,7 @@
 
     <div class="row">
         <div class="cell-12">
-            <h1>Traceys Pizza</h1>
+            <h1>Traceys Pizza tester</h1>
         </div>
     </div>
 
@@ -32,6 +32,7 @@
 <div id="header">
     <center><h2>Administration Page</h2></center>
 
+    <d3 th:text="${adminMotd}"></d3>
     <div class="row">
         <div class="cell 1">
             <button class="button secondary" onclick="btnClicked()" id="btn">Secondary</button>
@@ -46,10 +47,11 @@
 
 
 setTimeout(function(){
-   $('#spinner').fadeOut(1000, function() {
+   $('#spinner').fadeOut(3000, function() {
    $("#header").show();
+
   });
-}, 1000);
+}, 3000);
 
 function btnClicked() {
     $.ajax({
