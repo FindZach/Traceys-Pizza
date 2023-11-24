@@ -13,6 +13,7 @@ public enum Role {
     EMPLOYEE(),
     MANAGER(),
     ADMIN(),
+    OWNER(),
     DEVELOPER()
 
 }
