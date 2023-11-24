@@ -42,7 +42,7 @@ public class AdminController {
         System.out.println("User Session Data: " + session.getId());
         System.out.println("User Session Data: " + session.getAttribute("authenticated"));
         model.addAttribute("message", "Hello, Spring Boot and Thymeleaf!");
-        return "/greeting"; // This corresponds to the template name "greeting.html"
+        return "greeting"; // This corresponds to the template name "greeting.html"
     }
 
 }
