@@ -36,16 +36,4 @@ public class AdminController {
         return "admin";
     }
 
-    @GetMapping("/greeting")
-    public String greeting(Model model, HttpServletRequest request) {
-        // Add dynamic data to the model
-        HttpSession session = request.getSession();
-        session.setAttribute("authenticated", true);
-
-        System.out.println("User Session Data: " + session.getId());
-        System.out.println("User Session Data: " + session.getAttribute("authenticated"));
-        model.addAttribute("message", "Hello, Spring Boot and Thymeleaf!");
-        return "greeting"; // This corresponds to the template name "greeting.html"
-    }
-
 }
