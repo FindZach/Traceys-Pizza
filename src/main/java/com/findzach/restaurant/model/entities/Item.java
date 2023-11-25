@@ -24,7 +24,7 @@ public abstract class Item extends BaseEntity {
 
     private double price;
     //The amount of this item
-    private int quantity;
+    private int amount;
 
     public String getItemName() {
         return itemName;
@@ -58,11 +58,12 @@ public abstract class Item extends BaseEntity {
         this.price = price;
     }
 
-    public int getQuantity() {
-        return quantity;
+
+    public int getAmount() {
+        return amount;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }
