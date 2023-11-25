@@ -1,4 +1,4 @@
-package com.findzach.restaurant.model;
+package com.findzach.restaurant.model.entities.user;
 
 /**
  * @author Zach (zach@findzach.com)

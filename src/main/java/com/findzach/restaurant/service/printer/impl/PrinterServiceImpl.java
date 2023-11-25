@@ -1,6 +1,6 @@
 package com.findzach.restaurant.service.printer.impl;
 
-import com.findzach.restaurant.model.menu.Order;
+import com.findzach.restaurant.model.entities.order.Order;
 import com.findzach.restaurant.service.printer.PrinterOptions;
 import com.findzach.restaurant.service.printer.PrinterService;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package com.findzach.restaurant.controller.rest;
 
-import com.findzach.restaurant.model.menu.Order;
+import com.findzach.restaurant.model.entities.order.Order;
 import com.findzach.restaurant.service.printer.PrinterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

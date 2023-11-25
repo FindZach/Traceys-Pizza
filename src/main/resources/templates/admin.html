@@ -1,12 +1,13 @@
 <?PHP ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Admin Portal Page</title>
 
-    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" th:href="@{/resources/css/styles.css}" />
+
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -41,7 +42,8 @@
 </div>
 
 <script src="https://cdn.metroui.org.ua/v4.3.2/js/metro.min.js"></script>
-<script type="text/javascript" src="static/js/spinner.js"></script>
+<script type="text/javascript" th:src="@{/resources/js/spinner.js}"></script>
+
 <script>
     $("#header").hide();
 

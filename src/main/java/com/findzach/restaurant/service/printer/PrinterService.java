@@ -1,6 +1,6 @@
 package com.findzach.restaurant.service.printer;
 
-import com.findzach.restaurant.model.menu.Order;
+import com.findzach.restaurant.model.entities.order.Order;
 
 /**
  * @author Zach <zach@findzach.com>

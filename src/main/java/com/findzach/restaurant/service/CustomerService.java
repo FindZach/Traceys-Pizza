@@ -1,7 +1,7 @@
 package com.findzach.restaurant.service;
 
-import com.findzach.restaurant.model.customer.Customer;
-import com.findzach.restaurant.model.menu.Order;
+import com.findzach.restaurant.model.entities.user.customer.Customer;
+import com.findzach.restaurant.model.entities.order.Order;
 
 /**
  * @author Zach <zach@findzach.com>

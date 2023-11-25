@@ -1,7 +1,7 @@
 package com.findzach.restaurant.service.impl;
 
-import com.findzach.restaurant.model.customer.Customer;
-import com.findzach.restaurant.model.menu.Order;
+import com.findzach.restaurant.model.entities.user.customer.Customer;
+import com.findzach.restaurant.model.entities.order.Order;
 import com.findzach.restaurant.repository.CustomerRepository;
 import com.findzach.restaurant.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.findzach.restaurant.controller;
+package com.findzach.restaurant.controller.user.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,16 +19,19 @@ public class AdminController {
     boolean isAdmin = true;
 
     @GetMapping("/admin")
-    public String viewAdminPage(HttpServletRequest request) {
+    public String viewAdminPage(Model model, HttpServletRequest request) {
 
         HttpSession session = request.getSession();
         session.setAttribute("authenticated", true);
 
         System.out.println("User Session Data: " + session.getId());
         System.out.println("User Session Data: " + session.getAttribute("authenticated"));
+
         if (!isAdmin) {
             return "404";
         }
+
+        model.addAttribute("", "");
         System.out.println("New Updates!");
         return "admin";
     }
