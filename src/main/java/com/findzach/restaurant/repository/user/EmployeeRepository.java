@@ -1,4 +1,4 @@
-package com.findzach.restaurant.repository;
+package com.findzach.restaurant.repository.user;
 
 import com.findzach.restaurant.model.entities.user.employee.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
