@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/restaurant-0.0.1-SNAPSHOT.jar ./restaurant.jar
 
 # Expose the port that your Spring Boot application will run on
-EXPOSE 8080
+EXPOSE 8085
 
 # Define the command to run your Spring Boot application
 CMD ["java", "-jar", "restaurant.jar"]
