@@ -1,7 +1,7 @@
 package com.findzach.restaurant.controller.rest;
 
 import com.findzach.restaurant.model.entities.user.employee.Employee;
-import com.findzach.restaurant.service.EmployeeService;
+import com.findzach.restaurant.service.user.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
