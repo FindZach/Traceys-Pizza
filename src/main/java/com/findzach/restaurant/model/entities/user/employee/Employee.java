@@ -1,8 +1,8 @@
-package com.findzach.restaurant.model.customer;
+package com.findzach.restaurant.model.entities.user.employee;
 
-import com.findzach.restaurant.model.BaseEntity;
-import com.findzach.restaurant.model.Role;
-import com.findzach.restaurant.model.User;
+import com.findzach.restaurant.model.entities.user.Role;
+import com.findzach.restaurant.model.entities.user.Workable;
+import com.findzach.restaurant.model.entities.user.User;
 
 import javax.persistence.Entity;
 import java.util.Date;
@@ -12,12 +12,24 @@ import java.util.Date;
  * @since 9/17/2021
  */
 @Entity
-public class Customer extends BaseEntity implements User {
+public class Employee extends User implements Workable {
 
-    private String firstName, lastName, email;
+    /*
+     * The employees firstname
+     */
+    private String firstName;
+    private String lastName;
+    private String email;
+
     private Date birthday;
-    private Role role = Role.CUSTOMER;
+
+    private Role role;
     private int points;
+
+    /*
+     * True if Employee is clocked in, false if Employee is not clocked in
+     */
+    private boolean clockedIn;
 
     /**
      * @return The first name of the specified user
@@ -67,6 +79,26 @@ public class Customer extends BaseEntity implements User {
         return points;
     }
 
+    /**
+     * Checks Work Status
+     *
+     * @return - True if working, false if not working
+     */
+    @Override
+    public boolean isWorking() {
+        return false;
+    }
+
+    /**
+     * Will adjust the Employees' Status and update the proper fields
+     *
+     * @return True if shift is beginning, false if shift is ending.
+     */
+    @Override
+    public boolean toggleWork() {
+        return false;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -75,19 +107,11 @@ public class Customer extends BaseEntity implements User {
         this.lastName = lastName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
     public void setRole(Role role) {
         this.role = role;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
     }
 }

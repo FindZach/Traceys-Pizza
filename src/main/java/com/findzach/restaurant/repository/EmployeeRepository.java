@@ -1,6 +1,6 @@
 package com.findzach.restaurant.repository;
 
-import com.findzach.restaurant.model.employee.Employee;
+import com.findzach.restaurant.model.entities.user.employee.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" th:href="@{/resources/css/styles.css}" />
+  <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .login-container {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 400px; /* Set a maximum width for larger screens */
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0; /* Reduced top and bottom margins */
+            border: none;
+            background-color: #555;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px; /* Add a top margin to separate the button */
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+  <h2 id="form-title">Login</h2>
+  <form id="login-form" class="login-form" action="/login" method="post">
+    <!-- Login form fields (Username and Password) -->
+    <input type="text" name="username" placeholder="Username" required />
+    <input type="password" name="password" placeholder="Password" required />
+    <button type="submit">Log In</button>
+  </form>
+
+  <form id="register-form" class="login-form" action="/register" method="post" style="display: none;">
+    <!-- Registration form fields (Username, Password, Name, and Email) -->
+    <input type="text" name="newUsername" placeholder="New Username" required />
+    <input type="password" name="newPassword" placeholder="New Password" required />
+    <input type="text" name="name" placeholder="Name" required />
+    <input type="email" name="email" placeholder="Email" required style="width: 90%; padding: 10px; margin: 5px 0; border: none; background-color: #555; color: #fff; border-radius: 5px;" />
+    <button type="submit">Register</button>
+  </form>
+
+
+  <button style="background-color: orange;" id="toggle-button">Join</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Toggle between Login and Register forms
+    $("#toggle-button").click(function() {
+      $("#login-form, #register-form").toggle();
+      var currentTitle = $("#form-title").text();
+      var currentState = $("#toggle-button").text();
+      $("#form-title").text(currentTitle === "Login" ? "Register" : "Login");
+      $("#toggle-button").text(currentState === "Join" ? "Login" : "Join");
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 package com.findzach.restaurant.service.impl;
 
-import com.findzach.restaurant.model.employee.Employee;
+import com.findzach.restaurant.model.entities.user.employee.Employee;
 import com.findzach.restaurant.repository.EmployeeRepository;
 import com.findzach.restaurant.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;

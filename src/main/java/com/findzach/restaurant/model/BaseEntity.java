@@ -16,7 +16,7 @@ public abstract class BaseEntity {
     private long id;
 
     /*
-     * The timestamp of when account was registered
+     * The timestamp of when entity was registered
      */
     private Date entityCreationDate;
 
