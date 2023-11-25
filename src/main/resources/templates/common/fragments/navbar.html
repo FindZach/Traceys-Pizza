@@ -1,9 +1,11 @@
-<header>
-  <nav>
+<th:block th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<nav>
     <ul>
       <li><a th:href="@{/home}">Home</a></li>
       <li><a th:href="@{/about}">About</a></li>
       <li><a th:href="@{/contact}">Contact</a></li>
     </ul>
   </nav>
-</header>
+
+</th:block>

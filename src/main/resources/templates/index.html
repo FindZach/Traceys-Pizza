@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Configuration Page for Traceys Pizza</title>
+    <div th:replace="common/fragments/head :: header"></div>
+    <title>Restaurant Main Page</title>
 </head>
 <body>
-<div th:replace="common/components/header :: header"></div>
-<center><h1>Hello World</h1></center>
+    <div class="container-fluid mx-auto">
+        <div th:replace="common/fragments/navbar :: navbar"></div>
+
+
+        <div>
+            <div th:replace="common/fragments/special-deals :: deals"></div>
+        </div>
+
+        <div th:replace="common/fragments/footer :: footer"></div>
+    </div>
 </body>
 </html>
