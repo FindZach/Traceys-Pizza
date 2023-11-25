@@ -1,4 +1,4 @@
-package com.findzach.restaurant.model.menu;
+package com.findzach.restaurant.model.entities.menu;
 
 /**
  * @author: Zach Smith

@@ -7,7 +7,7 @@ import com.findzach.restaurant.model.entities.food.topping.ToppingQuantity;
 import com.findzach.restaurant.model.entities.user.Role;
 import com.findzach.restaurant.model.entities.user.customer.Customer;
 import com.findzach.restaurant.model.entities.user.employee.Employee;
-import com.findzach.restaurant.model.menu.MenuType;
+import com.findzach.restaurant.model.entities.menu.MenuType;
 import com.findzach.restaurant.repository.food.DishRepository;
 import com.findzach.restaurant.repository.food.FoodItemRepository;
 import com.findzach.restaurant.repository.food.ToppingRepository;
