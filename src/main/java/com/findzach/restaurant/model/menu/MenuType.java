@@ -9,6 +9,7 @@ public enum MenuType {
 
     ENTREE(),
     APPETIZER(),
+    DESSERT(),
     DINNER(),
     BREAKFAST(),
     LUNCH(),
