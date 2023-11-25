@@ -1,6 +1,11 @@
 <h1>Pizzeria Backend - >> FindZach 2021 <<</h1> 
 <h5>This is the backend for 'Traceys Pizza' which is a mock name for any pizza business. The goal is to create a beautiful and functional application that small pizza chains can leverage for free.</h5>
 
+<center>
+    <h2>
+        <a href="https://findzach.github.io/Traceys-Pizza/">Click Here to View Docs</a>
+    </h2>
+</center>
 
 <h2>Goals</h2>
 <ul>
