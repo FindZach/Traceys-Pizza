@@ -3,7 +3,7 @@
 
 <center>
     <h2>
-        <a href="https://findzach.github.io/Traceys-Pizza/">Click Here to View Docs</a>
+        <a target="_blank" href="https://findzach.github.io/Traceys-Pizza/">Click Here to View Docs</a>
     </h2>
 </center>
 
