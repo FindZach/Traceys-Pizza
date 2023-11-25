@@ -1,10 +1,14 @@
 package com.findzach.restaurant.bootstrap;
 
+import com.findzach.restaurant.model.entities.food.Dish;
+import com.findzach.restaurant.model.entities.food.FoodItem;
 import com.findzach.restaurant.model.entities.food.topping.Topping;
 import com.findzach.restaurant.model.entities.food.topping.ToppingQuantity;
 import com.findzach.restaurant.model.entities.user.Role;
 import com.findzach.restaurant.model.entities.user.customer.Customer;
 import com.findzach.restaurant.model.entities.user.employee.Employee;
+import com.findzach.restaurant.model.menu.MenuType;
+import com.findzach.restaurant.repository.food.DishRepository;
 import com.findzach.restaurant.repository.food.FoodItemRepository;
 import com.findzach.restaurant.repository.food.ToppingRepository;
 import com.findzach.restaurant.repository.user.EmployeeRepository;
@@ -13,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -25,7 +30,11 @@ public class Bootstrap implements CommandLineRunner {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+    @Autowired
     private FoodItemRepository foodItemRepository;
+
+    @Autowired
+    private DishRepository dishRepository;
 
     @Autowired
     private ToppingRepository toppingRepository;
@@ -63,11 +72,30 @@ public class Bootstrap implements CommandLineRunner {
         Topping topping = new Topping();
 
         topping.setItemName("Extra Whip Cream");
-        topping.setPrice(1.50);
+        topping.setPrice(.50);
         topping.setDescription("Extra Whip Cream!");
         topping.setQuantity(ToppingQuantity.EXTRA);
 
         toppingRepository.save(topping);
+
+        FoodItem foodItem = new FoodItem();
+
+        foodItem.setItemName("Pumpkin Pie");
+        foodItem.setMenuType(MenuType.DESSERT);
+        foodItem.setPrice(3.50);
+
+        foodItemRepository.save(foodItem);
+
+        Dish dish = new Dish();
+
+        dish.setItemName("Pumpkin Pie Special");
+        dish.setMenuType(MenuType.SPECIAL);
+        dish.setPrice(foodItem.getPrice() + topping.getPrice());
+        dish.setComponents(Arrays.asList(foodItem));
+        dish.setToppings(Arrays.asList(topping));
+
+        dishRepository.save(dish);
+
 
     }
 }
