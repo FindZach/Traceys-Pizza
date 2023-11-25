@@ -2,6 +2,8 @@ package com.findzach.restaurant.model.entities.user;
 
 import com.findzach.restaurant.model.BaseEntity;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 import java.util.Date;
 
@@ -14,6 +16,8 @@ public abstract class User extends BaseEntity {
     private String lastName;
     private String email;
     private Date birthday;
+
+    @Enumerated(EnumType.STRING)
     private Role role;
     private int points;
 
