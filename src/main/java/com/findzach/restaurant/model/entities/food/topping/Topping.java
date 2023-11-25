@@ -1,7 +1,7 @@
 package com.findzach.restaurant.model.entities.food.topping;
 
 import com.findzach.restaurant.model.entities.Item;
-import com.findzach.restaurant.model.menu.MenuType;
+import com.findzach.restaurant.model.entities.menu.MenuType;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
