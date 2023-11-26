@@ -1,6 +1,7 @@
 package com.findzach.restaurant.interceptor;
 
-import com.findzach.restaurant.controller.HomeController;
+import com.findzach.restaurant.config.Constants;
+import com.findzach.restaurant.config.WebStatus;
 import com.findzach.restaurant.model.session.SessionUser;
 import com.findzach.restaurant.service.session.SessionService;
 import org.slf4j.Logger;
@@ -15,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author: Zach Smith
@@ -28,7 +28,7 @@ import java.util.Set;
 public class SessionValidationInterceptor implements HandlerInterceptor {
     private static final Logger log = LoggerFactory.getLogger(SessionValidationInterceptor.class);
     @Autowired
-    private SessionService service;
+    private SessionService sessionService;
 
     /**
      * We don't want spammed calculations from static dir
@@ -37,22 +37,25 @@ public class SessionValidationInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
+
+        if (Constants.CURRENT_STATUS == WebStatus.UNDER_MAINTENANCE) {
+            if (request.getRequestURI().equalsIgnoreCase("/maintenance")) {
+                return true;
+            }
+            response.sendRedirect("maintenance");
+        }
+
         HttpSession session = request.getSession();
-        if (service.findById(session.getId()) == null) {
-            service.create(new SessionUser(session));
+        if (sessionService.findById(session.getId()) == null) {
+            sessionService.create(new SessionUser(session));
             log.info("Service created new SessionUser");
-            response.sendRedirect("/login");
-            return false;
         } else {
             if (!ignoreUrl(request.getRequestURI())) {
-                SessionUser currentUser = service.findById(session.getId());
+                SessionUser currentUser = sessionService.findById(session.getId());
                 log.info("Visiting URL: " + request.getRequestURI());
                 log.info("Found Session User: " + currentUser.getSession().getLastAccessedTime());
             }
         }
-        // Your session validation logic here
-        // If the session is valid, return true; otherwise, return false.
-        // You can also redirect to a login page if the session is not valid.
         return true;
     }
 
