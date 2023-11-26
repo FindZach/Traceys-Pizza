@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 #spinner {
   background: #a84064;
   height: 100vh;
