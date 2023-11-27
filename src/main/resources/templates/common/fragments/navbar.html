@@ -1,25 +1,44 @@
 <th:block th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml">
 
-<div class="bg-black" data-role="appbar" data-expand-point="md">
-    <a href="#" class="brand no-hover">
-    <span class="fg-white">
-        <div th:text="#{business.name}"></div>
-    </span>
-    </a>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><span th:text="#{business.name}"></span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown link
+                        </a>
+                        <ul class="dropdown-menu fullscreen-dropdown">
+                            <li><a class="dropdown-item" href="#">
+                                    <div class="row row-cols-1">
+                                        <th:block th:each="topping : ${toppingsList}">
+                                            <div class="col">
+                                                <h3 th:text="${topping.itemName}"></h3>
+                                                <h4 th:text="${topping.price}"></h4>
+                                            </div>
+                                        </th:block>
+                                    </div>
 
-    <ul class="app-bar-menu fg-white text-center md:text-left">
-        <li><a href="#">Home</a></li>
-        <li>
-            <a href="#" class="dropdown-toggle">Products</a>
-            <ul class="d-menu" data-role="dropdown">
-                <li><a href="#">Windows 10</a></li>
-                <li><a href="#">Office 365</a></li>
-                <li class="divider bg-lightGray"></li>
-                <li><a href="#">Skype</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Contacts</a></li>
-    </ul>
-</div>
+                            </a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </th:block>
