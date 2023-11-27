@@ -43,6 +43,7 @@ public class SessionValidationInterceptor implements HandlerInterceptor {
                 return true;
             }
             response.sendRedirect("maintenance");
+            return true;
         }
 
         HttpSession session = request.getSession();
