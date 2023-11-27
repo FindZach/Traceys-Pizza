@@ -9,6 +9,6 @@ package com.findzach.restaurant.config;
  */
 public class Constants {
 
-    public static final WebStatus CURRENT_STATUS = WebStatus.TESTING;
+    public static final WebStatus CURRENT_STATUS = WebStatus.UNDER_MAINTENANCE;
 
 }
