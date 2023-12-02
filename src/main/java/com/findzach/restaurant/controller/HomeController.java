@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @Controller
@@ -33,6 +34,9 @@ public class HomeController {
         formToppingsList();
 
         model.addAttribute("toppingsList", toppingList);
+
+        model.addAttribute("location", "Buffalo, New York");
+        model.addAttribute("currentYear", Calendar.getInstance().get(Calendar.YEAR));
 
         return "index"; // No leading slash
     }
