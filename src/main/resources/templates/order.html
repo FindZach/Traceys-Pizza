@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <div th:replace="common/fragments/head :: header"></div>
+  <title th:text="#{business.name}"></title>
+</head>
+<body class="bg-primary">
+<!-- Page Content -->
+<div class="container text-white" style="margin-top: 6.68rem;">
+
+  <div th:replace="common/fragments/navbar :: navbar"></div>
+
+  <!-- Content Here -->
+    <h1 class="text-center">Food Menu</h1>
+    <div class="row">
+      <!-- Food Items -->
+      <div class="col-md-4 mb-4">
+        <div class="card text-center text-secondary">
+          <div class="card-body">
+            <h5 class="card-title">Food Item 1</h5>
+            <p class="card-text">Description of Food Item 1.</p>
+            <p class="card-text">$10.99</p>
+            <button class="btn btn-primary text-white" onclick="addToCart('Food Item 1', 10.99)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  <!-- Cart Section -->
+  <div class="container mt-5">
+    <h2>Cart</h2>
+    <ul id="cart-items">
+      <!-- Cart items will be displayed here -->
+    </ul>
+  </div>
+</div>
+  <!-- JavaScript to Add Items to Cart -->
+  <script>
+        function addToCart(itemName, itemPrice) {
+            // Create a new list item to represent the added item
+            var listItem = document.createElement("li");
+            listItem.innerText = itemName + " - $" + itemPrice.toFixed(2);
+
+            // Add the list item to the cart
+            document.getElementById("cart-items").appendChild(listItem);
+        }
+    </script>
+</body>
+
+<div th:replace="common/fragments/footer :: footer"></div>
+</html>
