@@ -1,7 +1,9 @@
 package com.findzach.restaurant.service.attributes.impl;
 
+import com.findzach.restaurant.model.session.SessionUser;
 import com.findzach.restaurant.service.CrudService;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -13,6 +15,12 @@ import java.util.Set;
  */
 public class DefaultAttributeService implements CrudService<Object, String> {
     private final Map<String, Object> defaultAttributes = new HashMap<>();
+
+    private final SessionUser sessionUser;
+
+    public DefaultAttributeService(SessionUser sessionUser) {
+        this.sessionUser = sessionUser;
+    }
     /**
      * @return Finds all Default Attributes
      */
@@ -22,12 +30,12 @@ public class DefaultAttributeService implements CrudService<Object, String> {
     }
 
     /**
-     * @param Finds object by String key
+     * @param key Finds object by String key
      * @return Object associated with key
      */
     @Override
-    public Object findById(String s) {
-        return defaultAttributes.get(s);
+    public Object findById(String key) {
+        return defaultAttributes.get(key);
     }
 
     public Object create(String key, Object object) {
@@ -55,15 +63,16 @@ public class DefaultAttributeService implements CrudService<Object, String> {
      */
     @Override
     public boolean delete(Object object) {
-        return defaultAttributes.remove(object) != null;
+        return false;
     }
 
     /**
-     * @param s - The ID of the object
+     * @param selectedKey - The key of the object
      * @return
      */
     @Override
-    public boolean deleteById(String s) {
-        return defaultAttributes.keySet().stream().anyMatch(s1 -> s.equalsIgnoreCase(s1));
+    public boolean deleteById(String selectedKey) {
+        return defaultAttributes.keySet().removeIf(key -> selectedKey.equalsIgnoreCase(key));
     }
+
 }
