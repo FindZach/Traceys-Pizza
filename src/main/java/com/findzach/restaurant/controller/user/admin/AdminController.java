@@ -33,7 +33,7 @@ public class AdminController {
 
         model.addAttribute("", "");
         System.out.println("New Updates!");
-        return "admin";
+        return "admin/admin";
     }
 
 }
