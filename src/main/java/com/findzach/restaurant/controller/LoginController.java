@@ -14,6 +14,11 @@ public class LoginController {
         return "login";
     }
 
+    @GetMapping("/login2")
+    public String login2() {
+        return "common/fragments/login";
+    }
+
     @PostMapping("/login")
     public void loginAttempt(@RequestParam("username") String username, @RequestParam("password") String password) {
         System.out.println("Username: " + username);
