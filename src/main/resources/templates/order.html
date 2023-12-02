@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" data-bs-theme="light">
+<!DOCTYPE html >
+<html lang="en" data-bs-theme="light" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <div th:replace="common/fragments/head :: header"></div>
@@ -12,39 +12,55 @@
   <div th:replace="common/fragments/navbar :: navbar"></div>
 
   <!-- Content Here -->
-    <h1 class="text-center">Food Menu</h1>
-    <div class="row">
-      <!-- Food Items -->
-      <div class="col-md-4 mb-4">
-        <div class="card text-center text-secondary">
-          <div class="card-body">
-            <h5 class="card-title">Food Item 1</h5>
-            <p class="card-text">Description of Food Item 1.</p>
-            <p class="card-text">$10.99</p>
-            <button class="btn btn-primary text-white" onclick="addToCart('Food Item 1', 10.99)">Add to Cart</button>
-          </div>
+  <h1 class="text-center">Food Menu</h1>
+  <div class="row">
+    <!-- Food Items -->
+    <div th:each="dish : ${dishes}" class="col-md-4 mb-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title" th:text="${dish.getItemName()}"></h5>
+          <p class="card-text" th:text="${dish.getDescription()}"></p>
+          <p class="card-text" th:text="'$'+${dish.getPrice()}"></p>
+          <!-- Include the food modal fragment -->
+          <div th:replace="common/fragments/food_modal_fragment :: foodModal(food = ${dish})"></div>
+          <!-- Button to trigger the modal -->
+          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#foodModal">Customize Food</button>
         </div>
       </div>
-
     </div>
-  <!-- Cart Section -->
-  <div class="container mt-5">
-    <h2>Cart</h2>
-    <ul id="cart-items">
-      <!-- Cart items will be displayed here -->
-    </ul>
-  </div>
+    </div>
+
+    <!-- Cart Section -->
+    <div class="container mt-5">
+      <h2>Cart</h2>
+      <ul id="cart-items">
+        <!-- Cart items will be displayed here -->
+      </ul>
+    </div>
 </div>
+
+
   <!-- JavaScript to Add Items to Cart -->
   <script>
-        function addToCart(itemName, itemPrice) {
-            // Create a new list item to represent the added item
-            var listItem = document.createElement("li");
-            listItem.innerText = itemName + " - $" + itemPrice.toFixed(2);
+function addToCart(button) {
+    var itemName = button.getAttribute('data-itemname');
+    var price = parseFloat(button.getAttribute('data-price'));
 
-            // Add the list item to the cart
-            document.getElementById("cart-items").appendChild(listItem);
-        }
+    console.log('itemName: '+ itemName);
+    // Check if 'price' is a valid number before using 'toFixed'
+    if (!isNaN(price)) {
+        // Create a new list item to represent the added item
+        var listItem = document.createElement("li");
+        listItem.innerText = itemName + " - $" + price.toFixed(2);
+
+        // Add the list item to the cart
+        document.getElementById("cart-items").appendChild(listItem);
+    }
+}
+
+
+
+
     </script>
 </body>
 

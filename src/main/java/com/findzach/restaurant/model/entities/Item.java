@@ -16,8 +16,8 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract class Item extends BaseEntity {
 
-    private String itemName;
-    private String description;
+    protected String itemName;
+    protected String description;
 
     @Enumerated(EnumType.STRING)
     private MenuType menuType;

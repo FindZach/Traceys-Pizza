@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <div th:replace="common/fragments/head :: header"></div>
+  <title th:text="#{business.name}"></title>
+</head>
+<body class="bg-primary" style="margin-top: 6.98rem;">
+<!-- Page Content -->
+<div class="container">
+
+  <div th:replace="common/fragments/navbar :: navbar"></div>
+
+  <div th:switch="${dishes}">
+    <h2 th:case="null">No users yet!</h2>
+    <div th:case="*">
+      <h2>Users</h2>
+      <table class="table rounded">
+        <thead>
+        <tr class="text-center">
+          <th scope="col">Item Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center" th:each="dish : ${dishes}">
+          <td th:text="${dish.itemName}"></td>
+          <td th:text="${dish.price}"></td>
+          <td> <div class="btn btn-info">Edit</div></td>
+          <td> <div class="btn btn-danger">Delete</div></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><a href="/admin/dish/add">Add a new user</a></p>
+  </div>
+</div>
+</body>
+
+<div th:replace="common/fragments/footer :: footer"></div>
+</html>

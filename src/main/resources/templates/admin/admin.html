@@ -4,14 +4,37 @@
   <div th:replace="common/fragments/head :: header"></div>
   <title>Restaurant Main Page</title>
 </head>
-<body>
-<div class="container-fluid mx-auto pt-14">
+<body class="bg-primary">
+<div class="container-fluid mx-auto" style="margin-top: 6.97rem;">
   <div th:replace="common/fragments/navbar :: navbar"></div>
 
   <h1>Admin Page</h1>
 
+  <button type="button" class="btn btn-secondary" id="openAddDishModal" data-toggle="modal" data-target="#dishModal">Add Dish</button>
 
-  <div th:replace="common/fragments/footer :: footer"></div>
+  <!-- Bootstrap Modal for Add Dish Form -->
+  <div class="modal fade" id="dishModal" tabindex="-1" role="dialog" aria-labelledby="addDishModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addDishModalLabel">Add Dish</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Your Add Dish form here -->
+
+          <div th:replace="/common/fragments/dishes/add :: addDish"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 </body>
+
+<div th:replace="common/fragments/footer :: footer"></div>
+
 </html>
