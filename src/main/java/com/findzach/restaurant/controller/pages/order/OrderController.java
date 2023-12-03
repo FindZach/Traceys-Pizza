@@ -2,6 +2,7 @@ package com.findzach.restaurant.controller.pages.order;
 
 import com.findzach.restaurant.controller.pages.PizzaPage;
 import com.findzach.restaurant.model.entities.food.Dish;
+import com.findzach.restaurant.model.entities.food.FoodItem;
 import com.findzach.restaurant.model.entities.food.topping.Topping;
 import com.findzach.restaurant.model.entities.food.topping.ToppingQuantity;
 import com.findzach.restaurant.model.entities.menu.MenuType;
@@ -26,6 +27,7 @@ public class OrderController implements PizzaPage {
     public String showPage(Model model, HttpServletRequest httpServletRequest) {
         List<Dish> dishes = new ArrayList<>();
         List<Topping> toppingList = new ArrayList<>();
+        List<FoodItem> foodItemList = new ArrayList<>();
         Topping mustard = new Topping();
         mustard.setPrice(0);
         mustard.setQuantity(ToppingQuantity.NORMAL);
@@ -46,9 +48,20 @@ public class OrderController implements PizzaPage {
         bacon.setPrice(.75);
         toppingList.add(bacon);
 
+        FoodItem beefPatty = new FoodItem();
+        beefPatty.setPrice(.85);
+        beefPatty.setMenuType(MenuType.A_LA_CARTE);
+
+        beefPatty.setItemName("16oz Beef Patty");
+        beefPatty.setDescription("100% all beef patty");
+
+        foodItemList.add(beefPatty);
+
         Dish cheeseburger = new Dish();
 
-        cheeseburger.setItemName("Cheeseburger");
+        cheeseburger.setComponents(foodItemList);
+
+        cheeseburger.setItemName("Double Cheeseburger");
         cheeseburger.setToppings(toppingList);
         cheeseburger.setPrice(6.15);
         cheeseburger.setDescription("The best cheeseburger in town!");
@@ -59,7 +72,7 @@ public class OrderController implements PizzaPage {
 
         System.out.println("Adding cheeseburger : " + cheeseburger.getItemName());
 
-
+        setDefaults(model);
         return "order";
     }
 }
