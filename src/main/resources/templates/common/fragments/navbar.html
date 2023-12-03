@@ -24,46 +24,14 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
                                                          href="/reviews">REVIEWS</a></li>
                     <!-- HTML code -->
-                    <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary" id="loginJoinLink"
-                           href="/login" th:text="${loginState}">LOGIN / JOIN</a>
-                    </li>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary text-white" id="loginJoinLink"
+                       th:href="${loginState eq 'Logout' ? '/logout' : '/login'}">
+                        <span th:text="${loginState eq 'Logout' ? 'LOGOUT' : 'LOGIN / JOIN'}">LOGIN / JOIN</span>
+                    </a>
 
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- JavaScript code -->
-    <script>
 
-                document.addEventListener('DOMContentLoaded', function () {
-                    // Add a click event listener to the logout button
-                    const logoutButton = document.getElementById('loginJoinLink');
-                    logoutButton.addEventListener('click', function () {
-                        // Set the URL hash fragment to '#logout'
-
-                      const username = localStorage.getItem('username');
-
-                        // Get the login/join link element
-                        const loginJoinLink = document.getElementById('loginJoinLink');
-
-                        // Update the link text based on the presence of a username
-                        if (username) {
-                            window.location.hash = '#logout';
-                        }
-                    });
-                });
-                            // Listen for changes to the URL hash fragment
-                    window.addEventListener('hashchange', function () {
-                        // Check if the hash fragment equals '#logout'
-                        if (window.location.hash === '#logout') {
-                            // Clear the localStorage
-                            localStorage.clear();
-
-                            // Refresh the page
-                            location.reload();
-                        }
-                    });
-
-    </script>
 </th:block>

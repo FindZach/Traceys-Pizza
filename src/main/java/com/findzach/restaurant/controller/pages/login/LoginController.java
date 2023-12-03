@@ -39,7 +39,7 @@ public class LoginController extends BaseController {
             sessionUser.setRequestedLogout(true);
         }
 
-        return "redirect:/" + super.showPage(model, session);
+        return "redirect:/" + "";
     }
 
     @PostMapping("/login")
