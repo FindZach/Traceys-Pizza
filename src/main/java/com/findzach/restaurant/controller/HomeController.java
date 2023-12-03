@@ -17,60 +17,15 @@ import java.util.Calendar;
 import java.util.List;
 
 @Controller
-public class HomeController {
-    private static final Logger log = LoggerFactory.getLogger(HomeController.class);
+public class HomeController extends BaseController {
 
-    @Autowired
-    private SessionService service;
-
-    private List<Topping> toppingList = new ArrayList<>();
+    public HomeController(SessionService sessionService) {
+        super(sessionService, "index");
+    }
 
     @GetMapping("/")
     public String index(Model model, HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        // Your code here\
-        System.out.println("Visiting home! " + request.getSession().getId());
-
-        formToppingsList();
-
-        model.addAttribute("toppingsList", toppingList);
-
-        model.addAttribute("location", "Buffalo, New York");
-        model.addAttribute("currentYear", Calendar.getInstance().get(Calendar.YEAR));
-
-        return "index"; // No leading slash
+        return showPage(model, request.getSession()); // No leading slash
     }
 
-    private void formToppingsList() {
-        if (toppingList.isEmpty()) {
-
-            Topping cheese = new Topping();
-            Topping tomato = new Topping();
-            Topping relish = new Topping();
-            Topping mayo = new Topping();
-            Topping mustard = new Topping();
-
-            toppingList.add(cheese);
-            toppingList.add(tomato);
-            toppingList.add(relish);
-            toppingList.add(mayo);
-            toppingList.add(mustard);
-
-            cheese.setItemName("Cheese");
-            cheese.setPrice(.75);
-
-            tomato.setItemName("Tomato");
-            tomato.setPrice(.75);
-
-            relish.setItemName("Relish");
-            relish.setPrice(.75);
-
-            mayo.setItemName("Mayo");
-            mayo.setPrice(.75);
-
-            mustard.setItemName("Mustard");
-            mustard.setPrice(.75);
-
-        }
-    }
 }

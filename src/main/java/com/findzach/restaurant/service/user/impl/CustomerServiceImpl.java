@@ -7,6 +7,7 @@ import com.findzach.restaurant.service.user.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -31,8 +32,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Set<Customer> findAll() {
-        return Set.copyOf(customerRepository.findAll());
+    public List<Customer> findAll() {
+        return customerRepository.findAll();
     }
 
     //TODO: Error handling

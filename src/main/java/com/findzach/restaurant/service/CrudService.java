@@ -1,6 +1,6 @@
 package com.findzach.restaurant.service;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  * @author Zach <zach@findzach.com>
@@ -8,7 +8,7 @@ import java.util.Set;
  */
 public interface CrudService<T, ID> {
 
-    Set<T> findAll();
+    List<T> findAll();
 
     T findById(ID id);
 
