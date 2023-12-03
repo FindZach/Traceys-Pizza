@@ -19,6 +19,7 @@ public class DefaultAttributeService implements AttributeService<Object, String>
         defaultAttributes.put("location", "Buffalo, New York");
         defaultAttributes.put("currentYear", Calendar.getInstance().get(Calendar.YEAR));
         defaultAttributes.put("loginState", "LOGIN / JOIN");
+        System.out.println("Setting loginState...");
     }
     /**
      * @return Finds all Default Attributes

@@ -34,6 +34,7 @@ public abstract class BaseController implements PizzaPage {
         SessionUser sessionUser = sessionService.getSessionUser(session.getId());
         if (sessionUser != null && sessionUser.getSessionUserRole() != null && sessionUser.getSessionUserRole() != Role.GUEST) {
             model.addAttribute("loginState", "Logout");
+            System.out.println("Setting LoginState to ACTIVE");
             //TODO: Perhaps make this its own service down the road
         } else if(sessionUser != null && (sessionUser.isRequestedLogout())) {
             model.addAttribute("invalidSession", true);

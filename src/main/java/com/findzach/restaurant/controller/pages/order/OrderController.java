@@ -1,11 +1,14 @@
 package com.findzach.restaurant.controller.pages.order;
 
+import com.findzach.restaurant.controller.BaseController;
 import com.findzach.restaurant.controller.pages.PizzaPage;
 import com.findzach.restaurant.model.entities.food.Dish;
 import com.findzach.restaurant.model.entities.food.FoodItem;
 import com.findzach.restaurant.model.entities.food.topping.Topping;
 import com.findzach.restaurant.model.entities.food.topping.ToppingQuantity;
 import com.findzach.restaurant.model.entities.menu.MenuType;
+import com.findzach.restaurant.service.session.SessionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +23,12 @@ import java.util.List;
  * @time: 2:08 PM
  */
 @Controller
-public class OrderController implements PizzaPage {
+public class OrderController extends BaseController {
+
+    @Autowired
+    public OrderController(SessionService sessionService) {
+        super(sessionService, "pages/order");
+    }
 
     @GetMapping("order")
     @Override
@@ -72,7 +80,6 @@ public class OrderController implements PizzaPage {
 
         System.out.println("Adding cheeseburger : " + cheeseburger.getItemName());
 
-        setDefaults(model);
-        return "pages/order";
+        return super.showPage(model, session);
     }
 }

@@ -35,19 +35,7 @@
     </nav>
     <!-- JavaScript code -->
     <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        const username = localStorage.getItem('username');
 
-                        // Get the login/join link element
-                        const loginJoinLink = document.getElementById('loginJoinLink');
-
-                        // Update the link text based on the presence of a username
-                        if (username) {
-                            // If a username exists, update the link text to "Welcome, [Username]"
-                            loginJoinLink.textContent = `Logout`;
-                            loginJoinLink.href = '/logout';
-                        }
-                    });
                 document.addEventListener('DOMContentLoaded', function () {
                     // Add a click event listener to the logout button
                     const logoutButton = document.getElementById('loginJoinLink');
