@@ -1,6 +1,6 @@
 package com.findzach.restaurant.controller.user.portal;
 
-import com.findzach.restaurant.controller.pages.PizzaPage;
+import com.findzach.restaurant.controller.user.AuthenticatedUserController;
 import com.findzach.restaurant.service.session.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,10 +17,12 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 @RequestMapping("/user-portal")
-public class UserPortalController implements PizzaPage {
+public class UserPortalController extends AuthenticatedUserController {
 
     @Autowired
-    private SessionService sessionService;
+    public UserPortalController(SessionService sessionService) {
+        super(sessionService, "pages/user-portal");
+    }
 
     /**
      * @param model
@@ -29,9 +31,9 @@ public class UserPortalController implements PizzaPage {
     @GetMapping
     @Override
     public String showPage(Model model, HttpSession session) {
-        setDefaults(model);
 
-        System.out.println("Found User: Last Accessed " + sessionService.getSessionUser(session.getId()).getUserId());
-        return "pages/user-portal";
+        System.out.println("Found User: Last Accessed " + sessionService.getSessionUser(session.getId()).getSessionUserRole());
+
+        return super.showPage(model, session);
     }
 }
