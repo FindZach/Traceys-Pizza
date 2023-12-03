@@ -1,5 +1,6 @@
 package com.findzach.restaurant.model.entities.food;
 
+import com.findzach.restaurant.model.entities.Commentable;
 import com.findzach.restaurant.model.entities.Item;
 import com.findzach.restaurant.model.entities.food.topping.Topping;
 
@@ -16,7 +17,9 @@ import java.util.List;
  * @time: 7:34 PM
  */
 @Entity
-public class Dish extends Item {
+public class Dish extends Item implements Commentable {
+
+    private String comments;
     @ManyToMany
     @JoinTable(
             name = "dish_food_item",
@@ -33,6 +36,9 @@ public class Dish extends Item {
     )
     private List<Topping> toppings = new ArrayList<>();
 
+    public String getItemName() {
+        return super.itemName;
+    }
     public List<FoodItem> getComponents() {
         return components;
     }
@@ -47,5 +53,22 @@ public class Dish extends Item {
 
     public void setToppings(List<Topping> toppings) {
         this.toppings = toppings;
+    }
+
+    /**
+     * @return
+     */
+    @Override
+    public String getComment() {
+        return comments;
+    }
+
+    /**
+     * @param comment sets the comment
+     * @return
+     */
+    @Override
+    public void setComment(String comment) {
+        this.comments = comment;
     }
 }

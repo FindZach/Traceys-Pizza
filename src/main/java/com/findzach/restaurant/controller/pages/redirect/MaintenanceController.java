@@ -1,4 +1,4 @@
-package com.findzach.restaurant.controller.redirect;
+package com.findzach.restaurant.controller.pages.redirect;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

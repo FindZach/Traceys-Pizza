@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @CrossOrigin(maxAge = 3600)
 @Controller
-public class OrderController {
+public class LegacyOrderController {
 
     @Autowired
     private PrinterService printerService;
