@@ -2,8 +2,6 @@ package com.findzach.restaurant.service;
 
 import com.findzach.restaurant.model.BaseEntity;
 
-import java.util.Date;
-
 /**
  * @author: Zach Smith
  * @date: 12/3/2023
@@ -11,8 +9,4 @@ import java.util.Date;
  */
 public interface BaseEntityCrudService<T extends BaseEntity, ID> extends CrudService<T, ID> {
 
-    default T onCreate(T object) {
-        object.setEntityCreationDate(new Date());
-        return object;
-    }
 }

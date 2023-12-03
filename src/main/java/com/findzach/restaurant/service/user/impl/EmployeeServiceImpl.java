@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author Zach S <zach@findzach.com>
@@ -31,7 +30,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee create(Employee object) {
-        onCreate(object);
         return employeeRepository.save(object);
     }
 
