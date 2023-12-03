@@ -37,6 +37,7 @@ public abstract class BaseController implements PizzaPage {
         SessionUser sessionUser = sessionService.getSessionUser(session.getId());
         setDefaults(model, defaultAttributeService);
 
+        //TODO: Service for role management
         model.addAttribute("role", sessionUser != null ? sessionUser.getSessionUserRole() : Role.GUEST);
 
         if (sessionUser != null && sessionUser.getSessionUserRole() != null && sessionUser.getSessionUserRole() != Role.GUEST) {
