@@ -4,10 +4,7 @@ import com.findzach.restaurant.service.attributes.AttributeService;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author: Zach Smith
@@ -18,16 +15,21 @@ import java.util.Set;
 public class DefaultAttributeService implements AttributeService<Object, String> {
     private final Map<String, Object> defaultAttributes = new HashMap<>();
 
+    enum LoginState {
+        LOGGED_OUT,
+        LOGGED_IN
+    }
+
     public DefaultAttributeService() {
-        defaultAttributes.put("location", "Buffalo, New York");
         defaultAttributes.put("currentYear", Calendar.getInstance().get(Calendar.YEAR));
+        defaultAttributes.put("loginState", "LOGIN / JOIN");
     }
     /**
      * @return Finds all Default Attributes
      */
     @Override
-    public Set<Object> findAll() {
-        return (Set<Object>) defaultAttributes.values();
+    public List<Object> findAll() {
+        return (List<Object>) defaultAttributes.values();
     }
 
     @Cacheable("defaultAttributeMap")

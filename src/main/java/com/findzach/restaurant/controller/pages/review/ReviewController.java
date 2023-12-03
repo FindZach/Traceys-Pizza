@@ -1,6 +1,8 @@
 package com.findzach.restaurant.controller.pages.review;
 
+import com.findzach.restaurant.controller.BaseController;
 import com.findzach.restaurant.controller.pages.PizzaPage;
+import com.findzach.restaurant.service.session.SessionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +17,11 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 @RequestMapping("reviews")
-public class ReviewController implements PizzaPage {
+public class ReviewController extends BaseController {
+
+    public ReviewController(SessionService sessionService) {
+        super(sessionService, "pages/review");
+    }
 
     /**
      * @param model
@@ -25,7 +31,6 @@ public class ReviewController implements PizzaPage {
     @GetMapping
     @Override
     public String showPage(Model model, HttpSession session) {
-        setDefaults(model);
-        return "pages/review";
+        return super.showPage(model, session);
     }
 }

@@ -6,7 +6,7 @@ import com.findzach.restaurant.service.user.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  * @author Zach S <zach@findzach.com>
@@ -19,8 +19,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
 
     @Override
-    public Set<Employee> findAll() {
-        return Set.copyOf(employeeRepository.findAll());
+    public List<Employee> findAll() {
+        return employeeRepository.findAll();
     }
 
     @Override

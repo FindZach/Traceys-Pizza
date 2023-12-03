@@ -1,0 +1,22 @@
+<th:block th:fragment="toast" xmlns:th="http://www.w3.org/1999/xhtml">
+  <link rel="stylesheet" th:href="@{/resources/css/toast.css(__${#dates.format(#dates.createNow(), 'yyyyMMddHHmmss')}__)}" />
+
+  <!-- The actual snackbar -->
+  <div id="snackbar">Some text some message..</div>
+
+  <script>
+    function sendToast(toastMsg) {
+  // Get the snackbar DIV
+  var x = document.getElementById("snackbar");
+
+  console.log('snackbar data; '+ JSON.stringify(x));
+
+  // Add the "show" class to DIV
+  x.className = "show";
+  x.textContent = toastMsg;
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+  </script>
+</th:block>
