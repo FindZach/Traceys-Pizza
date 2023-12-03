@@ -1,6 +1,7 @@
 package com.findzach.restaurant.service.attributes.impl;
 
 import com.findzach.restaurant.service.CrudService;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
@@ -29,6 +30,7 @@ public class DefaultAttributeService implements CrudService<Object, String> {
         return (Set<Object>) defaultAttributes.values();
     }
 
+    @Cacheable("defaultAttributeMap")
     public Map<String, Object> getAll() {
         return defaultAttributes;
     }
