@@ -5,14 +5,17 @@
       <div class="card mb-3 mx-auto md:pr-5" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4 d-flex justify-content-center align-items-center">
-            <i class="far fa-credit-card fa-5x text-success"></i>
+            <i class="fas fa-wrench fa-5x text-success"></i>
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title title" th:text="${title}">Current Balance</h5>
-              <p class="display-5" th:text="${amount}">$0.00</p>
-              <div class="btn btn-success">Deposit</div>
-              <div class="btn btn-info">View History</div>
+              <h5 class="card-title title" th:text="'Role: ' + ${role}"></h5>
+              <p class="display-5"></p>
+              <div class="row col-12">
+                <div class="btn btn-success p-1 m-1">View Users</div>
+                <div class="btn btn-info p-1 m-1">View History</div>
+                <div class="btn btn-info p-1 m-1">View History</div>
+              </div>
               <p class="card-text"><small class="text-muted">Last refreshed <span th:text="${lastRefreshMinutes}"></span> mins ago</small></p>
             </div>
           </div>

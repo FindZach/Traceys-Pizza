@@ -12,9 +12,27 @@
 
 <div class="container" style="margin-top: 7rem;">
 
-  <div th:if="${role == 'ADMIN' || role == 'DEVELOPER'}" class="row">
-    <div th:replace="common/fragments/portal/admin/details-card :: showAdmin"></div>
+  <div class="card text-center mt-5 mb-5">
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    <div class="card-footer text-body-secondary">
+      2 days ago
+    </div>
   </div>
+
+  <div th:if="${role eq 'DEVELOPER'}" class="row">
+    <div th:replace="common/fragments/portal/admin/details-card :: showAdmin"></div>
+
+  </div>
+
+  <div th:replace="common/components/admin/crud-fragment :: crudTemplate(${items})"></div>
+
   <div class="row"> <!-- Add this row to contain the cards -->
     <div th:replace="common/fragments/portal/current-balance :: balanceCard('Current Balance', '$102.30', '5')"></div>
     <div th:replace="common/fragments/portal/current-balance :: balanceCard('Total Points', '350 Points', '10')"></div>
