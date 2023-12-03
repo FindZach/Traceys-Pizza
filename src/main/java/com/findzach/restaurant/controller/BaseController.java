@@ -35,8 +35,6 @@ public abstract class BaseController implements PizzaPage {
         if (sessionUser != null && sessionUser.getSessionUserRole() != null && sessionUser.getSessionUserRole() != Role.GUEST) {
             model.addAttribute("loginState", "Logout");
         }
-
-        System.out.println("Adjusting Login State...");
         return baseTemplateRoute;
     }
 
