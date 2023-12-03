@@ -10,15 +10,13 @@ import com.findzach.restaurant.repository.food.DishRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author: Zach Smith
@@ -48,8 +46,20 @@ public class DishController implements PizzaPage {
     @PostMapping("/add")
     public String addDish(@ModelAttribute("dish") Dish dish) {
         // Add logic to save the dish to the database using dishService
+        System.out.println("Dish: " + dish.getItemName());
+        System.out.println("Price: " + dish.getPrice());
+        System.out.println("Description: " + dish.getDescription());
+        dishService.save(dish);
         return "redirect:/dishes/list"; // Redirect to the list page
     }
+
+    @GetMapping("/edit/{id}")
+    public String editDish(@PathVariable Long id, Model model) {
+        Optional<Dish> dish = dishService.findById(id); // Replace this with your actual service method to find a dish by ID
+        model.addAttribute("dish", dish.get());
+        return "/common/fragments/dishes/edit"; // Return the HTML template name for editing
+    }
+
 
     /**
      * @param model
@@ -84,10 +94,11 @@ public class DishController implements PizzaPage {
 
         FoodItem beefPatty = new FoodItem();
         beefPatty.setPrice(.85);
+        beefPatty.setMenuType(MenuType.A_LA_CARTE);
+
         beefPatty.setItemName("16oz Beef Patty");
         beefPatty.setDescription("100% all beef patty");
 
-        foodItemList.add(beefPatty);
         foodItemList.add(beefPatty);
 
         Dish cheeseburger = new Dish();

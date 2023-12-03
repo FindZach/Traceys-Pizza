@@ -61,14 +61,26 @@
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
 
-                    <p>Hello World</p>
-                    <ul>
-                      <li th:each="component : ${food.components}" th:text="${component}"></li>
-                    </ul>
-
-                    <div class="form-check" th:each="extra : ${food.getComponents()}">
-                      <input type="checkbox" class="form-check-input" th:id="${'extra-' + extra.getItemName()}" th:value="${extra.getItemName()}">
-                      <label class="form-check-label" th:for="${'extra-' + extra.getItemName()}" th:text="${extra.getItemName()}">Extra Name</label>
+                    <div class="row pl-5">
+                      <div th:each="extra : ${food.getComponents()}" class="col-md-12">
+                        <div class="form-check form-switch">
+                          <input type="checkbox" class="form-check-input" th:id="${'extra-' + extra.getItemName()}" th:value="${extra.getItemName()}" onclick="showQuantityDropdown(this)">
+                          <!-- Use 'for' attribute to explicitly associate label with input -->
+                          <label class="form-check-label" th:for="${'extra-' + extra.getItemName()}">
+                            <span th:text="${extra.getItemName()}">Topping Name</span>
+                            <!-- Display topping price and quantity -->
+                            <span th:text="${extra.getPrice() != null and extra.getPrice() != 0} ? ' - $' + ${extra.getPrice()} : ''">
+                              Topping Price
+                            </span>
+                          </label>
+                          <!-- Dropdown for topping quantity -->
+                          <select class="form-select quantity-dropdown" style="display:none;">
+                            <option value="normal">Normal</option>
+                            <option value="light">Light</option>
+                            <option value="extra">Extra</option>
+                          </select>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
