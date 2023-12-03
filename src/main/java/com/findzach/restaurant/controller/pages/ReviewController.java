@@ -18,13 +18,12 @@ public class ReviewController implements PizzaPage{
 
     /**
      * @param model
-     * @param httpServletRequest
      * @return
      */
     @GetMapping
     @Override
-    public String showPage(Model model, HttpServletRequest httpServletRequest) {
+    public String showPage(Model model) {
         setDefaults(model);
-        return "review";
+        return "pages/review";
     }
 }

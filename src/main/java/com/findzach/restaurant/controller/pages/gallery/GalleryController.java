@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 public class GalleryController implements PizzaPage {
 
     @GetMapping("gallery")
-    public String showPage(Model model, HttpServletRequest httpServletRequest) {
+    public String showPage(Model model) {
         setDefaults(model);
         return "gallery";
     }

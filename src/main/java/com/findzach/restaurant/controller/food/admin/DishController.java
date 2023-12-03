@@ -63,12 +63,11 @@ public class DishController implements PizzaPage {
 
     /**
      * @param model
-     * @param httpServletRequest
      * @return
      */
     @GetMapping
     @Override
-    public String showPage(Model model, HttpServletRequest httpServletRequest) {
+    public String showPage(Model model) {
         List<Dish> dishes = new ArrayList<>();
         List<Topping> toppingList = new ArrayList<>();
         List<FoodItem> foodItemList = new ArrayList<>();

@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServletRequest;
  * @time: 2:00 PM
  */
 public interface PizzaPage {
+
+
     default void setDefaults(Model model) {
         model.addAllAttributes(new DefaultAttributeService().getAll());
     }
 
-    String showPage(Model model, HttpServletRequest httpServletRequest);
+    String showPage(Model model);
 }

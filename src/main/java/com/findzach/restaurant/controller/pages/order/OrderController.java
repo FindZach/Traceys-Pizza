@@ -24,7 +24,7 @@ public class OrderController implements PizzaPage {
 
     @GetMapping("order")
     @Override
-    public String showPage(Model model, HttpServletRequest httpServletRequest) {
+    public String showPage(Model model) {
         List<Dish> dishes = new ArrayList<>();
         List<Topping> toppingList = new ArrayList<>();
         List<FoodItem> foodItemList = new ArrayList<>();
