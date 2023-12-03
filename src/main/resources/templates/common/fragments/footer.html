@@ -28,8 +28,9 @@
             </div>
         </div>
     </footer>
-    <section class="copyright py-4 text-center text-white">
-        <div class="container"><small class="pre-wrap">Copyright © <span th:text="#{business.name}"></span> <span th:text="${currentYear}"></span></small></div>
+    <section class="copyright py-4 text-white">
+        <div class="container text-center"><small class="pre-wrap ">Copyright © <span th:text="#{business.name}"></span> <span th:text="${currentYear}"></span></small></div>
+        <span class="container text-left"><small class="pre-wrap">Web Version <span th:text="#{web.version}"></span></small></span>
     </section>
 
 
@@ -41,4 +42,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Core theme JS-->
     <script src="resources/js/switch.js"></script>
+    <script>
+        const toastTrigger = document.getElementById('liveToastBtn')
+    const toastLiveExample = document.getElementById('liveToast')
+
+    if (toastTrigger) {
+      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+      toastTrigger.addEventListener('click', () => {
+        toastBootstrap.show()
+      })
+    }
+  </script>
+
 </th:block>

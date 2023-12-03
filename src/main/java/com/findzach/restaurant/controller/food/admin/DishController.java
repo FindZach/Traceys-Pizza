@@ -12,9 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,12 +62,12 @@ public class DishController implements PizzaPage {
 
     /**
      * @param model
-     * @param httpServletRequest
+     * @param session
      * @return
      */
     @GetMapping
     @Override
-    public String showPage(Model model, HttpServletRequest httpServletRequest) {
+    public String showPage(Model model, HttpSession session) {
         List<Dish> dishes = new ArrayList<>();
         List<Topping> toppingList = new ArrayList<>();
         List<FoodItem> foodItemList = new ArrayList<>();

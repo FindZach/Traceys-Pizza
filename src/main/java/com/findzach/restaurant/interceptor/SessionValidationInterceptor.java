@@ -2,6 +2,7 @@ package com.findzach.restaurant.interceptor;
 
 import com.findzach.restaurant.config.Constants;
 import com.findzach.restaurant.config.WebStatus;
+import com.findzach.restaurant.model.entities.user.Role;
 import com.findzach.restaurant.model.session.SessionUser;
 import com.findzach.restaurant.service.session.SessionService;
 import org.slf4j.Logger;
@@ -33,7 +34,7 @@ public class SessionValidationInterceptor implements HandlerInterceptor {
     /**
      * We don't want spammed calculations from static dir
      */
-    private final List<String> urlsEntryToIgnore = Arrays.asList("/images/", "/resources/", "error");
+    private final List<String> urlsEntryToIgnore = Arrays.asList("/images/", "/resources/", "error", "/assets/");
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
@@ -49,12 +50,9 @@ public class SessionValidationInterceptor implements HandlerInterceptor {
         HttpSession session = request.getSession();
         if (sessionService.findById(session.getId()) == null) {
             sessionService.create(new SessionUser(session));
-            log.info("Service created new SessionUser");
         } else {
             if (!ignoreUrl(request.getRequestURI())) {
                 SessionUser currentUser = sessionService.findById(session.getId());
-                log.info("Visiting URL: " + request.getRequestURI());
-                log.info("Found Session User: " + currentUser.getSession().getLastAccessedTime());
             }
         }
         return true;
@@ -72,6 +70,7 @@ public class SessionValidationInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
+
         // This method is called after the controller method has been invoked but before the view is rendered.
     }
 

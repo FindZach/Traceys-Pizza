@@ -1,0 +1,37 @@
+
+<th:block th:fragment="shoppingCartFragment" xmlns:th="http://www.w3.org/1999/xhtml">
+<!-- Button to open the shopping cart popup -->
+  <div class="fixed-bottom w-10 text-right">
+    <button id="openCartBtn" type="button" class="btn btn-info m-1 pt-2" data-bs-toggle="modal" data-bs-target="#shoppingCartModal">
+      <h5 class="text-white">      <i class="fas fa-shopping-basket"></i> Cart <span class="badge bg-secondary">3</span></h5>
+    </button>
+  </div>
+
+<!-- Shopping Cart Modal -->
+<div class="modal fade" id="shoppingCartModal" tabindex="-1" role="dialog" aria-labelledby="shoppingCartModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="shoppingCartModalLabel">Shopping Cart</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Display the items in the shopping cart -->
+        <ul th:if="${not #lists.isEmpty(cartItems)}">
+          <li th:each="item : ${cartItems}">
+            <span th:text="${item.name}"></span> - <span th:text="${item.price}"></span>
+          </li>
+        </ul>
+        <p th:if="${#lists.isEmpty(cartItems)}">Your shopping cart is empty.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- Add more actions like checkout, clear cart, etc. -->
+      </div>
+    </div>
+  </div>
+</div>
+
+</th:block>

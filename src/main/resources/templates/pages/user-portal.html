@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <div th:replace="common/fragments/head :: header"></div>
+  <title th:text="#{business.name}"></title>
+</head>
+<body class="bg-primary">
+<!-- Page Content -->
+<div class="container" style="margin-top: 7rem;">
+
+  <div th:replace="common/fragments/navbar :: navbar"></div>
+
+  <div class="card mb-3 mx-auto md:pr-5">
+    <div class="row">
+      <div class="col-md-3 md:ml-5 align-self-center text-center">
+        <i class="far fa-credit-card fa-5x text-success"></i>
+      </div>
+      <div class="col-md-9">
+        <div class="card-body text-right">
+          <h5 class="card-title title">Current Balance</h5>
+          <p class="display-5">$102.30</p>
+          <div class="btn btn-success">Deposit</div>
+          <div class="btn btn-info">View History</div>
+          <p class="card-text"><small class="text-muted">Last refreshed 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="display-2"> Welcome to user portal !! </p>
+</div>
+</body>
+
+<div th:replace="common/fragments/footer :: footer"></div>
+</html>
