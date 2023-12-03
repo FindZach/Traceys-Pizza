@@ -1,6 +1,6 @@
 package com.findzach.restaurant.service.attributes.impl;
 
-import com.findzach.restaurant.service.CrudService;
+import com.findzach.restaurant.service.attributes.AttributeService;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import java.util.Set;
  * @time: 2:21 PM
  */
 @Service
-public class DefaultAttributeService implements CrudService<Object, String> {
+public class DefaultAttributeService implements AttributeService<Object, String> {
     private final Map<String, Object> defaultAttributes = new HashMap<>();
 
     public DefaultAttributeService() {
