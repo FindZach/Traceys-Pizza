@@ -17,6 +17,7 @@ public class GalleryController implements PizzaPage {
 
     @GetMapping("gallery")
     public String showPage(Model model, HttpServletRequest httpServletRequest) {
+        setDefaults(model);
         return "gallery";
     }
 }
