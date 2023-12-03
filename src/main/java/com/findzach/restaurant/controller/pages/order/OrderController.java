@@ -73,6 +73,6 @@ public class OrderController implements PizzaPage {
         System.out.println("Adding cheeseburger : " + cheeseburger.getItemName());
 
         setDefaults(model);
-        return "order";
+        return "pages/order";
     }
 }

@@ -1,5 +1,6 @@
-package com.findzach.restaurant.controller.pages;
+package com.findzach.restaurant.controller.pages.contact;
 
+import com.findzach.restaurant.controller.pages.PizzaPage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,12 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author: Zach Smith
  * @date: 12/2/2023
- * @time: 9:56 PM
+ * @time: 8:47 PM
  */
+@RequestMapping("contact")
 @Controller
-@RequestMapping("reviews")
-public class ReviewController implements PizzaPage{
-
+public class ContactController implements PizzaPage {
     /**
      * @param model
      * @return
@@ -24,6 +24,7 @@ public class ReviewController implements PizzaPage{
     @Override
     public String showPage(Model model) {
         setDefaults(model);
-        return "pages/review";
+
+        return "pages/contact-us";
     }
 }

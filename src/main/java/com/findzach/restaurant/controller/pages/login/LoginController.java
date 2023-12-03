@@ -1,4 +1,4 @@
-package com.findzach.restaurant.controller.pages;
+package com.findzach.restaurant.controller.pages.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
