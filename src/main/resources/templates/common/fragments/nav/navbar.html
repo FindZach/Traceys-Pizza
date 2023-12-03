@@ -17,14 +17,15 @@
                 <ul class="navbar-nav ml-auto text-center">
                     <li class="nav-item mx-0 mx-lg-1"><a
                             class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary"
-                            href="/order">ORDER</a></li>
+                            href="/order"><i class="fas fa-utensils"></i> ORDER</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                                         href="/gallery">GALLERY</a></li>
+                                                         href="/gallery"><i class="fas fa-camera"></i> GALLERY</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a
-                            class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary" href="/contact">CONTACT</a>
+                            class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary" href="/contact"><i class="fas fa-scroll"></i> CONTACT</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                                         href="/reviews">REVIEWS</a></li>
+                                                         href="/reviews"><i class="fas fa-pen"></i> REVIEWS</a></li>
+
                     <li class="nav-item mx-0 mx-lg-1" th:unless="${loginState eq 'Logout'}">
                         <!-- HTML code -->
                         <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary text-white" id="loginJoinLink"
@@ -34,9 +35,8 @@
                     </li>
                     <li class="nav-item mx-0 mx-lg-1" th:if="${loginState eq 'Logout'}">
                         <!-- Sidebar User Only code -->
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary text-white" id="user-sidebar"
-                           th:href="${loginState eq 'Logout' ? '/logout' : '/login'}" data-bs-toggle="offcanvas" data-bs-target="#sideMenu">
-                            <i class="fas fa-bars mr-2"></i>User Menu
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary text-white" id="user-sidebar" data-bs-toggle="offcanvas" data-bs-target="#sideMenu">
+                            <i class="fas fa-cogs"></i>
                         </a>
 
                     </li>
