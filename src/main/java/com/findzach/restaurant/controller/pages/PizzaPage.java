@@ -1,10 +1,9 @@
 package com.findzach.restaurant.controller.pages;
 
 import com.findzach.restaurant.service.attributes.impl.DefaultAttributeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author: Zach Smith
@@ -18,5 +17,6 @@ public interface PizzaPage {
         model.addAllAttributes(new DefaultAttributeService().getAll());
     }
 
-    String showPage(Model model);
+    String showPage(Model model, HttpSession session);
+
 }

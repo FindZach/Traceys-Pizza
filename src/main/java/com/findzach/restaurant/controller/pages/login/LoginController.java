@@ -20,10 +20,12 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public void loginAttempt(@RequestParam("username") String username, @RequestParam("password") String password) {
+    public String loginAttempt(@RequestParam("username") String username, @RequestParam("password") String password) {
         System.out.println("Username: " + username);
         System.out.println("Password: " + password);
         // Add your authentication logic here
+
+        return "redirect:/user-portal"; // Redirect to the list page
     }
 
 }

@@ -1,7 +1,6 @@
 package com.findzach.restaurant.controller.pages.contact;
 
 import com.findzach.restaurant.controller.pages.PizzaPage;
-import org.atmosphere.config.service.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author: Zach Smith
@@ -21,11 +20,12 @@ import javax.servlet.http.HttpServletRequest;
 public class ContactController implements PizzaPage {
     /**
      * @param model
+     * @param session
      * @return
      */
     @GetMapping
     @Override
-    public String showPage(Model model) {
+    public String showPage(Model model, HttpSession session) {
         setDefaults(model);
         return "pages/contact-us";
     }

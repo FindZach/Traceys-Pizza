@@ -13,6 +13,7 @@ public class SessionUser {
     private Long userId;
 
     public SessionUser(HttpSession session) {
+        userId = session.getLastAccessedTime();
         this.session = session;
     }
 

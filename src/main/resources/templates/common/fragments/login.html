@@ -44,5 +44,30 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // Get the data from local storage
+var token = localStorage.getItem('token');
+
+// Create an object or JSON payload with the data
+var dataToSend = {
+  token: token
+};
+
+// Make the POST request using jQuery
+$.ajax({
+  url: '/auth',
+  type: 'POST',
+  contentType: 'application/json', // Set content type to JSON
+  data: token, // Convert data to JSON
+  success: function(response) {
+    // Handle the successful response
+  },
+  error: function(error) {
+    // Handle errors
+  }
+});
+
+</script>
 </body>
 </html>
