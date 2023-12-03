@@ -44,6 +44,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer create(Customer object) {
+        onCreate(object);
         return customerRepository.save(object);
     }
 

@@ -31,6 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee create(Employee object) {
+        onCreate(object);
         return employeeRepository.save(object);
     }
 
