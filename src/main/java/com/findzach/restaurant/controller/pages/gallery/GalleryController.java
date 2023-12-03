@@ -18,6 +18,6 @@ public class GalleryController implements PizzaPage {
     @GetMapping("gallery")
     public String showPage(Model model) {
         setDefaults(model);
-        return "gallery";
+        return "pages/gallery";
     }
 }
