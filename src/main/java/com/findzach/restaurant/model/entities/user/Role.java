@@ -9,6 +9,7 @@ package com.findzach.restaurant.model.entities.user;
 public enum Role {
 
 
+    GUEST(),
     CUSTOMER(),
     EMPLOYEE(),
     MANAGER(),
