@@ -49,7 +49,7 @@ public class LoginController extends BaseController {
         // Add your authentication logic here
 
         if (sessionService.getSessionUser(session.getId()) != null)
-            sessionService.getSessionUser(session.getId()).setRole(Role.CUSTOMER);
+            sessionService.getSessionUser(session.getId()).setRole(Role.DEVELOPER);
 
         return "redirect:/user-portal"; // Redirect to the list page
     }

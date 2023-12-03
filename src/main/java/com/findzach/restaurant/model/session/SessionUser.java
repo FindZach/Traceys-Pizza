@@ -24,7 +24,6 @@ public class SessionUser {
     public HttpSession getSession() {
         return session;
     }
-
     public Long getUserId() {
         return userId;
     }
