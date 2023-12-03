@@ -1,27 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" data-bs-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" th:href="@{/resources/css/styles.css}" />
+  <div th:replace="common/fragments/head :: header"></div>
+  <title th:text="#{business.name} + ' | Login Page'"></title>
   <style>
         body {
-            background-color: #333;
-            color: #fff;
             font-family: Arial, sans-serif;
             text-align: center;
         }
 
         .login-container {
-            background-color: #444;
-            padding: 20px;
+            padding: 1rem;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             width: 80%;
             max-width: 400px; /* Set a maximum width for larger screens */
-            margin: 0 auto;
-            margin-top: 100px;
+            margin: 20% auto;
+            margin-top: 20rem;
         }
 
         .login-form input[type="text"],
@@ -30,7 +27,6 @@
             padding: 10px;
             margin: 5px 0; /* Reduced top and bottom margins */
             border: none;
-            background-color: #555;
             color: #fff;
             border-radius: 5px;
         }
@@ -47,9 +43,10 @@
         }
     </style>
 </head>
-<body>
-<div class="login-container">
-  <h2 id="form-title">Login</h2>
+<body class="bg-primary">
+<div th:replace="common/fragments/navbar :: navbar"></div>
+<div class="login-container bg-secondary">
+  <h2 id="form-title" class="display-4 text-white">Login</h2>
   <form id="login-form" class="login-form" action="/login" method="post">
     <!-- Login form fields (Username and Password) -->
     <input type="text" name="username" placeholder="Username" required />
@@ -67,7 +64,7 @@
   </form>
 
 
-  <button style="background-color: orange;" id="toggle-button">Join</button>
+  <button class="bg-primary" id="toggle-button">Join</button>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -84,4 +81,6 @@
   });
 </script>
 </body>
+
+<div th:replace="common/fragments/footer :: footer"></div>
 </html>
