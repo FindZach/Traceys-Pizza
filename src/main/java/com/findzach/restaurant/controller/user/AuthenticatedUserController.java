@@ -1,8 +1,6 @@
 package com.findzach.restaurant.controller.user;
 
 import com.findzach.restaurant.controller.BaseController;
-import com.findzach.restaurant.model.entities.user.Role;
-import com.findzach.restaurant.model.session.SessionUser;
 import com.findzach.restaurant.service.session.SessionService;
 import org.springframework.ui.Model;
 
@@ -21,14 +19,13 @@ public abstract class AuthenticatedUserController extends BaseController {
 
     @Override
     public String showPage(Model model, HttpSession session) {
-
         if (!isAuthenticated(session)) {
-            return "redirect:/";
+            return "redirect:/login";
         }
         return super.showPage(model, session);
     }
 
     protected boolean isAuthenticated(HttpSession session) {
-        return sessionService.getSessionUser(session.getId()).getSessionUserRole() != null && sessionService.getSessionUser(session.getId()).getSessionUserRole() != Role.GUEST;
+        return sessionService.isAuthenticated(session);
     }
 }
