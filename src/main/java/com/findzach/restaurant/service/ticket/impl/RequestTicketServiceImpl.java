@@ -47,7 +47,6 @@ public class RequestTicketServiceImpl implements RequestTicketService {
      */
     @Override
     public RequestTicket create(RequestTicket object) {
-        onCreate(object);
         return requestTicketRepository.save(object);
     }
 

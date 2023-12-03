@@ -15,9 +15,8 @@ public abstract class BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    /*
-     * The timestamp of when entity was registered
-     */
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "creation_date")
     private Date entityCreationDate;
 
     public long getId() {
