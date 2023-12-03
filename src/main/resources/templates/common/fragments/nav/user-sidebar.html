@@ -1,0 +1,24 @@
+<th:block th:fragment="user-sidebar" xmlns:th="http://www.w3.org/1999/xhtml">
+
+  <div class="container-fluid">
+    <a class="btn btn-success navbar-toggler navbar-toggler-right font-weight-bold text-white rounded" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideMenu">
+      User Menu <i class="ml-2 fas fa-bars"></i>
+    </a>
+    <!-- Side menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sideMenu">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <!-- Side menu links -->
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="/menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+          <!-- Add more menu items here -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</th:block>
