@@ -52,6 +52,7 @@ public class Bootstrap implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        /*
         Employee employee = new Employee();
 
         employee.setBirthday(new Date());
@@ -122,6 +123,8 @@ public class Bootstrap implements CommandLineRunner {
         mustard.setPrice(.75);
 
         toppingRepository.saveAll(toppings);
+
+         */
 
     }
 }

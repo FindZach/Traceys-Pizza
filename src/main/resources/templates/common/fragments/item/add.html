@@ -1,0 +1,34 @@
+<th:block th:fragment="addItem" xmlns:th="http://www.w3.org/1999/xhtml">
+  <div class="container mt-4">
+    <h2>Add New Item</h2>
+    <form th:action="@{/addItem}" method="post" enctype="multipart/form-data" class="row g-3">
+      <div class="col-md-6">
+        <label for="itemName" class="form-label">Item Name:</label>
+        <input type="text" class="form-control" id="itemName" name="itemName" required />
+      </div>
+      <div class="col-md-6">
+        <label for="itemPrice" class="form-label">Price:</label>
+        <input type="number" class="form-control" id="itemPrice" name="itemPrice" required />
+      </div>
+      <div class="col-12">
+        <label for="itemDescription" class="form-label">Description:</label>
+        <textarea class="form-control" id="itemDescription" name="itemDescription"></textarea>
+      </div>
+      <div class="col-12">
+        <label for="itemImage" class="form-label">Image:</label>
+        <input type="file" class="form-control" id="itemImage" name="itemImage" accept="image/*" />
+      </div>
+      <div class="col-md-4">
+        <label for="itemType" class="form-label">Item Type:</label>
+        <select id="itemType" name="itemType" class="form-select">
+          <option value="Food">Food</option>
+          <option value="Topping">Topping</option>
+          <option value="Dish">Dish</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Add Item</button>
+      </div>
+    </form>
+  </div>
+</th:block>

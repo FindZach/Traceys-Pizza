@@ -5,6 +5,7 @@ import com.findzach.restaurant.model.entities.menu.MenuType;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Lob;
 import javax.persistence.MappedSuperclass;
 
 /**
@@ -25,6 +26,9 @@ public abstract class Item extends BaseEntity {
     private double price;
     //The amount of this item
     private int amount;
+
+    @Lob
+    private String base64Image; // Field to store the image
 
     public String getItemName() {
         return itemName;
@@ -65,5 +69,13 @@ public abstract class Item extends BaseEntity {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public String getImage() {
+        return base64Image;
+    }
+
+    public void setImage(String base64Image) {
+        this.base64Image = base64Image;
     }
 }
