@@ -21,7 +21,7 @@ public class UserPortalController extends AuthenticatedUserController {
 
     @Autowired
     public UserPortalController(SessionService sessionService) {
-        super(sessionService, "pages/user-portal");
+        super(sessionService, "pages/user/user-portal");
     }
 
     /**

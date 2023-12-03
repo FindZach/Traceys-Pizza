@@ -1,0 +1,25 @@
+<th:block th:fragment="about-display(title, leftAboutText, rightAboutText)" xmlns:th="http://www.w3.org/1999/xhtml">
+  <section class="page-section bg-primary text-white mb-0" id="about">
+    <div class="container">
+      <!-- About Section Heading-->
+      <div class="text-center">
+        <h2 class="page-section-heading d-inline-block text-white" th:text="${title}">ABOUT</h2>
+      </div>
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- About Section Content-->
+      <div class="row">
+        <div class="col-lg-4 ml-auto">
+          <p class="pre-wrap lead" th:text="${leftAboutText}"></p>
+        </div>
+        <div class="col-lg-4 mr-auto">
+          <p class="pre-wrap lead" th:text="${rightAboutText}"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</th:block>
