@@ -7,17 +7,70 @@
                 <img src="/images/logo.png" alt="Tracey Pizza Logo" width="50"> <!-- Adjust the width as needed -->
                 <span th:text="#{business.name}"></span>
             </a>
-            <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded"
+                    type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i
+                    class="fas fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto text-center">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary" href="/order">ORDER</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/gallery">GALLERY</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary" href="/contact">CONTACT</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/reviews">REVIEWS</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary" href="/login">LOGIN / JOIN</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a
+                            class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary"
+                            href="/order">ORDER</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                                                         href="/gallery">GALLERY</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a
+                            class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary" href="/contact">CONTACT</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                                                         href="/reviews">REVIEWS</a></li>
+                    <!-- HTML code -->
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary" id="loginJoinLink"
+                           href="/login">LOGIN / JOIN</a>
+                    </li>
+
+                    <li class="nav-item mx-0 mx-lg-1 pt-5">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary" id="user-portal"
+                           href="/user-portal">User Portal</a>
+                    </li>
+
                 </ul>
             </div>
         </div>
     </nav>
+    <!-- JavaScript code -->
+    <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const username = localStorage.getItem('username');
 
+                        // Get the login/join link element
+                        const loginJoinLink = document.getElementById('loginJoinLink');
+
+                        // Update the link text based on the presence of a username
+                        if (username) {
+                            // If a username exists, update the link text to "Welcome, [Username]"
+                            loginJoinLink.textContent = `Logout`;
+                        }
+                    });
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Add a click event listener to the logout button
+                    const logoutButton = document.getElementById('loginJoinLink');
+                    logoutButton.addEventListener('click', function () {
+                        // Set the URL hash fragment to '#logout'
+                        window.location.hash = '#logout';
+                    });
+                });
+                            // Listen for changes to the URL hash fragment
+                    window.addEventListener('hashchange', function () {
+                        // Check if the hash fragment equals '#logout'
+                        if (window.location.hash === '#logout') {
+                            // Clear the localStorage
+                            localStorage.clear();
+
+                            // Refresh the page
+                            location.reload();
+                        }
+                    });
+
+    </script>
 </th:block>

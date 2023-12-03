@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author: Zach Smith
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 public class GalleryController implements PizzaPage {
 
     @GetMapping("gallery")
-    public String showPage(Model model) {
+    public String showPage(Model model, HttpSession session) {
         setDefaults(model);
         return "pages/gallery";
     }
