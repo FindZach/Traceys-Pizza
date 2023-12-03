@@ -1,4 +1,4 @@
-package com.findzach.restaurant.controller;
+package com.findzach.restaurant.controller.pages;
 
 import com.findzach.restaurant.controller.pages.PizzaPage;
 import org.springframework.stereotype.Controller;
