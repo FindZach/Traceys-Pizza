@@ -1,0 +1,68 @@
+<!DOCTYPE html >
+<html lang="en" data-bs-theme="light" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <div th:replace="common/fragments/head :: header"></div>
+  <title th:text="#{business.name}"></title>
+</head>
+<body class="bg-primary">
+<!-- Page Content -->
+<div class="container text-white" style="margin-top: 6.68rem;">
+
+  <div th:replace="common/fragments/navbar :: navbar"></div>
+
+  <!-- Content Here -->
+  <h1 class="text-center">Food Menu</h1>
+  <div class="row">
+    <!-- Food Items -->
+    <div th:each="dish : ${dishes}" class="col-md-4 mb-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title" th:text="${dish.getItemName()}"></h5>
+          <p class="card-text" th:text="${dish.getDescription()}"></p>
+          <p class="card-text" th:text="'$'+${dish.getPrice()}"></p>
+          <!-- Include the food modal fragment -->
+          <div th:replace="common/fragments/food_modal_fragment :: foodModal(food = ${dish})"></div>
+          <!-- Button to trigger the modal -->
+          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#foodModal">Customize Food</button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- Cart Section -->
+    <div class="container mt-5">
+      <h2>Cart</h2>
+      <ul id="cart-items">
+        <!-- Cart items will be displayed here -->
+      </ul>
+    </div>
+</div>
+
+
+  <!-- JavaScript to Add Items to Cart -->
+  <script>
+function addToCart(button) {
+    var itemName = button.getAttribute('data-itemname');
+    var price = parseFloat(button.getAttribute('data-price'));
+
+    console.log('itemName: '+ itemName);
+    // Check if 'price' is a valid number before using 'toFixed'
+    if (!isNaN(price)) {
+        // Create a new list item to represent the added item
+        var listItem = document.createElement("li");
+        listItem.innerText = itemName + " - $" + price.toFixed(2);
+
+        // Add the list item to the cart
+        document.getElementById("cart-items").appendChild(listItem);
+    }
+}
+
+
+
+
+    </script>
+</body>
+
+<div th:replace="common/fragments/footer :: footer"></div>
+</html>

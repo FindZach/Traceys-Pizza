@@ -1,0 +1,31 @@
+<!-- list.html -->
+<div class="container mt-5">
+  <h1>List of Dishes</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Loop through the dishes and display each one -->
+    <th:block th:each="dish : ${dishes}">
+      <tr>
+        <td th:text="${dish.id}"></td>
+        <td th:text="${dish.itemName}"></td>
+        <td th:text="${dish.description}"></td>
+        <td th:text="${dish.price}"></td>
+        <td>
+          <a class="btn btn-primary" th:href="@{'/dishes/edit/' + ${dish.id}}">Edit</a>
+          <a class="btn btn-danger" th:href="@{'/dishes/delete/' + ${dish.id}}" onclick="return confirm('Are you sure you want to delete this dish?')">Delete</a>
+        </td>
+      </tr>
+    </th:block>
+    </tbody>
+  </table>
+  <a class="btn btn-success" th:href="@{/dishes/add}">Add Dish</a>
+</div>
