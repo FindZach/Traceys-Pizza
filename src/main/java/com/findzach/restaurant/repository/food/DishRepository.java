@@ -12,10 +12,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DishRepository extends JpaRepository<Dish, Long> {
 
-    @Override
-    default <S extends Dish> S save(S s) {
-        save(s);
-
-        return s;
-    }
 }
