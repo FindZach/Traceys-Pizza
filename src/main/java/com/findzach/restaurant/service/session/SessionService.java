@@ -5,8 +5,8 @@ import com.findzach.restaurant.service.CrudService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * @author: Zach Smith
@@ -23,8 +23,8 @@ public class SessionService implements CrudService<SessionUser, String> {
     }
 
     @Override
-    public Set<SessionUser> findAll() {
-        return (Set<SessionUser>) sessionUserMap.values();
+    public List<SessionUser> findAll() {
+        return (List<SessionUser>) sessionUserMap.values();
     }
 
     @Override

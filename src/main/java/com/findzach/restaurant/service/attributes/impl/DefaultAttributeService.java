@@ -4,10 +4,7 @@ import com.findzach.restaurant.service.attributes.AttributeService;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author: Zach Smith
@@ -27,8 +24,8 @@ public class DefaultAttributeService implements AttributeService<Object, String>
      * @return Finds all Default Attributes
      */
     @Override
-    public Set<Object> findAll() {
-        return (Set<Object>) defaultAttributes.values();
+    public List<Object> findAll() {
+        return (List<Object>) defaultAttributes.values();
     }
 
     @Cacheable("defaultAttributeMap")
