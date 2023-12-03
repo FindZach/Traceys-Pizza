@@ -4,6 +4,8 @@ import com.findzach.restaurant.controller.pages.PizzaPage;
 import com.findzach.restaurant.model.entities.user.Role;
 import com.findzach.restaurant.model.session.SessionUser;
 import com.findzach.restaurant.service.session.SessionService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpSession;
  */
 public abstract class BaseController implements PizzaPage {
 
+    protected static final Logger log = LoggerFactory.getLogger(BaseController.class);
     protected final SessionService sessionService;
     protected final String baseTemplateRoute;
 
@@ -31,10 +34,9 @@ public abstract class BaseController implements PizzaPage {
         SessionUser sessionUser = sessionService.getSessionUser(session.getId());
         if (sessionUser != null && sessionUser.getSessionUserRole() != null && sessionUser.getSessionUserRole() != Role.GUEST) {
             model.addAttribute("loginState", "Logout");
-        } else {
-            model.addAttribute("loginState", "Login | Join");
         }
 
+        System.out.println("Adjusting Login State...");
         return baseTemplateRoute;
     }
 
