@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
  */
 public interface PizzaPage {
 
-
     default void setDefaults(Model model) {
         model.addAllAttributes(new DefaultAttributeService().getAll());
     }
