@@ -1,9 +1,9 @@
 package com.findzach.restaurant.service.attributes.impl;
 
-import com.findzach.restaurant.model.session.SessionUser;
 import com.findzach.restaurant.service.CrudService;
+import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpSession;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -13,13 +13,13 @@ import java.util.Set;
  * @date: 12/2/2023
  * @time: 2:21 PM
  */
+@Service
 public class DefaultAttributeService implements CrudService<Object, String> {
     private final Map<String, Object> defaultAttributes = new HashMap<>();
 
-    private final SessionUser sessionUser;
-
-    public DefaultAttributeService(SessionUser sessionUser) {
-        this.sessionUser = sessionUser;
+    public DefaultAttributeService() {
+        defaultAttributes.put("location", "Buffalo, New York");
+        defaultAttributes.put("currentYear", Calendar.getInstance().get(Calendar.YEAR));
     }
     /**
      * @return Finds all Default Attributes
@@ -27,6 +27,10 @@ public class DefaultAttributeService implements CrudService<Object, String> {
     @Override
     public Set<Object> findAll() {
         return (Set<Object>) defaultAttributes.values();
+    }
+
+    public Map<String, Object> getAll() {
+        return defaultAttributes;
     }
 
     /**
