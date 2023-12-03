@@ -1,7 +1,6 @@
 package com.findzach.restaurant.controller.pages.order;
 
 import com.findzach.restaurant.controller.BaseController;
-import com.findzach.restaurant.controller.pages.PizzaPage;
 import com.findzach.restaurant.model.entities.food.Dish;
 import com.findzach.restaurant.model.entities.food.FoodItem;
 import com.findzach.restaurant.model.entities.food.topping.Topping;
