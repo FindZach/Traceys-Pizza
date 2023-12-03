@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <div th:replace="common/fragments/head :: header"></div>
+  <title th:text="#{business.name}"></title>
+</head>
+<body class="bg-primary">
+<!-- Page Content -->
+<div class="container">
+
+  <div th:replace="common/fragments/navbar :: navbar"></div>
+
+  <!-- Pizza Reviews - Bootstrap Pizza Component -->
+  <section class="py-3 py-md-5 py-xl-8 text-white">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+          <h2 class="mb-4 display-5 text-center">Pizza Reviews</h2>
+          <p class="display-4 mb-5 text-center lead fs-4">These are just a few of the many pizza reviews that we have received from our customers. We are committed to providing the best pizza experience.</p>
+          <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+        </div>
+      </div>
+    </div>
+
+    <div class="container overflow-hidden">
+      <div class="row justify-content-lg-around gy-5 gy-md-6">
+        <div class="col-12 col-sm-6 col-lg-5">
+          <div class="col-xl-11 col-xxl-10 mx-auto text-center">
+            <img class="img-fluid rounded rounded-circle mb-4" loading="lazy" src="./assets/img/pizza-reviewer-1.jpg" alt="John Doe - Pizza Lover">
+            <p class="mb-2">I was so impressed with the pizza they made for me. They were able to take my cravings and turn them into a delicious reality, and they did it all on time.</p>
+            <p class="m-0 fw-bold">John Doe - Pizza Lover</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-5">
+          <div class="col-xl-11 col-xxl-10 mx-auto text-center">
+            <img class="img-fluid rounded rounded-circle mb-4" loading="lazy" src="./assets/img/pizza-reviewer-2.jpg" alt="Jane Smith - Pizza Enthusiast">
+            <p class="mb-2">We were looking for a place that could satisfy our pizza cravings. It was the perfect choice. The pizza was visually appealing and incredibly tasty.</p>
+            <p class="m-0 fw-bold">Jane Smith - Pizza Enthusiast</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-5">
+          <div class="col-xl-11 col-xxl-10 mx-auto text-center">
+            <img class="img-fluid rounded rounded-circle mb-4" loading="lazy" src="./assets/img/pizza-reviewer-3.jpg" alt="Michael Wilson - Pizza Connoisseur">
+            <p class="mb-2">We were struggling to find the perfect pizza. We needed help choosing the right toppings. They were able to provide us with the best pizza guidance.</p>
+            <p class="m-0 fw-bold">Michael Wilson - Pizza Connoisseur</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-5">
+          <div class="col-xl-11 col-xxl-10 mx-auto text-center">
+            <img class="img-fluid rounded rounded-circle mb-4" loading="lazy" src="./assets/img/pizza-reviewer-4.jpg" alt="Sarah Johnson - Pizza Aficionado">
+            <p class="mb-2">We were looking for a place that could help us with our pizza cravings. We needed a variety of toppings. They were able to create the perfect pizza.</p>
+            <p class="m-0 fw-bold">Sarah Johnson - Pizza Aficionado</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</div>
+</body>
+
+<div th:replace="common/fragments/footer :: footer"></div>
+</html>

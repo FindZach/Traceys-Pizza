@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +24,7 @@ public class OrderController implements PizzaPage {
 
     @GetMapping("order")
     @Override
-    public String showPage(Model model, HttpServletRequest httpServletRequest) {
+    public String showPage(Model model, HttpSession session) {
         List<Dish> dishes = new ArrayList<>();
         List<Topping> toppingList = new ArrayList<>();
         List<FoodItem> foodItemList = new ArrayList<>();
@@ -73,6 +73,6 @@ public class OrderController implements PizzaPage {
         System.out.println("Adding cheeseburger : " + cheeseburger.getItemName());
 
         setDefaults(model);
-        return "order";
+        return "pages/order";
     }
 }

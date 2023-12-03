@@ -26,8 +26,8 @@
         <div class="col-12 col-lg-9">
           <div class="bg-white border rounded shadow-sm overflow-hidden">
 
-            <form action="#!">
-              <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
+            <form method="post" th:action="@{/contact}">
+            <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
                 <div class="col-12">
                   <label for="fullname" class="form-label">Full Name <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="fullname" name="fullname" value="" required>
