@@ -1,9 +1,11 @@
 package com.findzach.restaurant.service.session;
 
+import com.findzach.restaurant.model.entities.user.Role;
 import com.findzach.restaurant.model.session.SessionUser;
 import com.findzach.restaurant.service.CrudService;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,5 +49,9 @@ public class SessionService implements CrudService<SessionUser, String> {
     public boolean deleteById(String s) {
         sessionUserMap.remove(s);
         return true;
+    }
+
+    public boolean isAuthenticated(HttpSession session) {
+        return getSessionUser(session.getId()).getSessionUserRole() != null && getSessionUser(session.getId()).getSessionUserRole() != Role.GUEST;
     }
 }

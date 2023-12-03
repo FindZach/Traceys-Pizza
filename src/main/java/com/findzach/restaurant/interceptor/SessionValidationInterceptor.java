@@ -35,12 +35,14 @@ public class SessionValidationInterceptor implements HandlerInterceptor {
      * We don't want spammed calculations from static dir
      */
     private final List<String> urlsEntryToIgnore = Arrays.asList("/images/", "/resources/", "error", "/assets/");
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
 
+        String requestedUrl = request.getRequestURI();
         if (Constants.CURRENT_STATUS == WebStatus.UNDER_MAINTENANCE) {
-            if (request.getRequestURI().equalsIgnoreCase("/maintenance")) {
+            if (requestedUrl.equalsIgnoreCase("/maintenance")) {
                 return true;
             }
             response.sendRedirect("maintenance");
@@ -53,6 +55,14 @@ public class SessionValidationInterceptor implements HandlerInterceptor {
         } else {
             if (!ignoreUrl(request.getRequestURI())) {
                 SessionUser currentUser = sessionService.findById(session.getId());
+                if (currentUser != null) {
+
+                    if (requestedUrl.equalsIgnoreCase("/login") &&
+                            sessionService.isAuthenticated(session)) {
+                        response.sendRedirect("user-portal");
+                        return true;
+                    }
+                }
             }
         }
         return true;

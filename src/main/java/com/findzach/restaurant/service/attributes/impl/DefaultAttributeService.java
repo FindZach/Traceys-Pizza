@@ -15,11 +15,14 @@ import java.util.*;
 public class DefaultAttributeService implements AttributeService<Object, String> {
     private final Map<String, Object> defaultAttributes = new HashMap<>();
 
+    enum LoginState {
+        LOGGED_OUT,
+        LOGGED_IN
+    }
+
     public DefaultAttributeService() {
-        defaultAttributes.put("location", "Buffalo, New York");
         defaultAttributes.put("currentYear", Calendar.getInstance().get(Calendar.YEAR));
         defaultAttributes.put("loginState", "LOGIN / JOIN");
-        System.out.println("Setting loginState...");
     }
     /**
      * @return Finds all Default Attributes
