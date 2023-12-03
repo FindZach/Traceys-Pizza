@@ -150,7 +150,7 @@
         <div th:replace="common/fragments/menu/popular-items :: popularItems"></div>
 
 
-        <div th:replace="common/components/about-display-1 :: about-display('TEST')"></div>
+        <div th:replace="common/components/about-display-1 :: about-display('TEST', ${role}, 'rightText')"></div>
 
         <!-- Include the shopping cart fragment -->
         <div th:replace="common/fragments/order/shopping-cart :: shoppingCartFragment"></div>
