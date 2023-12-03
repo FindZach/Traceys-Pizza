@@ -1,6 +1,8 @@
 package com.findzach.restaurant.controller.pages.contact;
 
+import com.findzach.restaurant.controller.BaseController;
 import com.findzach.restaurant.controller.pages.PizzaPage;
+import com.findzach.restaurant.service.session.SessionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +19,11 @@ import javax.servlet.http.HttpSession;
  */
 @RequestMapping("contact")
 @Controller
-public class ContactController implements PizzaPage {
+public class ContactController extends BaseController {
+    public ContactController(SessionService sessionService) {
+        super(sessionService, "pages/contact-us");
+    }
+
     /**
      * @param model
      * @param session
@@ -26,8 +32,7 @@ public class ContactController implements PizzaPage {
     @GetMapping
     @Override
     public String showPage(Model model, HttpSession session) {
-        setDefaults(model);
-        return "pages/contact-us";
+        return super.showPage(model, session);
     }
 
     @PostMapping
