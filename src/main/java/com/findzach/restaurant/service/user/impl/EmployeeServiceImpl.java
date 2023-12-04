@@ -53,4 +53,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         return false;
     }
+
+    /**
+     * @param username
+     * @return
+     */
+    public List<Employee> findByUsername(String username) {
+        return null;
+    }
 }
