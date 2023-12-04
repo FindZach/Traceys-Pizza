@@ -66,4 +66,13 @@ public class CustomerServiceImpl implements CustomerService {
             return true;
         } else return false;
     }
+
+    /**
+     * @param username
+     * @return
+     */
+    @Override
+    public Customer findByUsername(String username) {
+        return customerRepository.findCustomerByUsername(username);
+    }
 }
