@@ -27,6 +27,10 @@
                 </div>
             </div>
         </div>
+        <div id="overlay" style="display: none;">
+            <canvas id="pizza"></canvas>
+        </div>
+
     </footer>
     <section class="copyright py-4 text-white">
         <div class="container text-center"><small class="pre-wrap ">Copyright © <span th:text="#{business.name}"></span> <span th:text="${currentYear}"></span></small></div>
@@ -42,6 +46,27 @@
 
     <!-- Core theme JS-->
     <script src="resources/js/switch.js"></script>
+    <script type="text/javascript" th:src="@{/resources/js/spinner.js}"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    var overlay = document.getElementById("overlay");
+    var ids = ["loginJoinLink", "contactNav", "reviewsNav", "logoNav", "orderNav", "galleryNav"]; // List of IDs
+
+    ids.forEach(function(id) {
+        var element = document.getElementById(id);
+        if (element) {
+            element.addEventListener("click", function() {
+                overlay.style.display = "flex";
+            });
+        }
+    });
+});
+
+</script>
+
+    <script>
+
+
     <script>
         const toastTrigger = document.getElementById('liveToastBtn')
     const toastLiveExample = document.getElementById('liveToast')
