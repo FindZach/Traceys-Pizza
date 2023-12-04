@@ -81,22 +81,13 @@ public class LoginController extends BaseController {
     }
 
     @PostMapping("/login")
-    public String loginAttempt(Model model, HttpSession session, @RequestParam("username") String username, @RequestParam("password") String password) {
-        System.out.println("Username: " + username);
-        System.out.println("Password: " + password);
-        // Add your authentication logic here
-
-
+    public String loginAttempt(Model model, @RequestParam("username") String username, @RequestParam("password") String password) {
         User foundUser = customerService.findByUsername(username);
 
-        if (username.isBlank() || password.isBlank() || foundUser == null) {
+        if (username.isBlank() || password.isBlank() || foundUser == null || !passwordEncoder.matches(password, foundUser.getPassword())) {
             model.addAttribute("errorMsg", "Invalid username or password!");
             return "pages/login";
         }
-
-        System.out.println("Found user: " + foundUser.getId());
-        if (sessionService.getSessionUser(session.getId()) != null)
-            sessionService.getSessionUser(session.getId()).setRole(Role.DEVELOPER);
 
         return "redirect:/user-portal"; // Redirect to the list page
     }
