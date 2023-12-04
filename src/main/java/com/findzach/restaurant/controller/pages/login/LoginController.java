@@ -94,12 +94,12 @@ public class LoginController extends BaseController {
             return "pages/login";
         }
 
-        System.out.println("Found user: " + foundUser.getId());
+        System.out.println("Found Id: " + foundUser.getId());
         if (foundUser.getUsername().equalsIgnoreCase("Zach")) {
             foundUser.setRole(Role.DEVELOPER);
         }
         if (sessionService.getSessionUser(session.getId()) != null)
-            sessionService.getSessionUser(session.getId()).setRole(foundUser.getRole());
+            sessionService.getSessionUser(session.getId()).setRole(foundUser.getRole() != null ? foundUser.getRole() : Role.CUSTOMER);
 
         return "redirect:/user-portal"; // Redirect to the list page
     }
