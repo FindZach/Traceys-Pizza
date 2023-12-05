@@ -17,10 +17,10 @@
       Featured
     </div>
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
+      <h5 class="card-title">Thanks for joining, <span th:text="${user.getFirstName()}"></span></h5>
       <p class="card-text">
 
-      <div th:replace="common/fragments/item/add :: addItem"></div>
+        This will be used for main notifications
 
       </p>
       <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -33,6 +33,7 @@
   <div th:if="${role eq 'DEVELOPER'}" class="row">
     <div th:replace="common/fragments/portal/admin/details-card :: showAdmin"></div>
 
+    <div th:replace="common/fragments/item/add :: addItem"></div>
   </div>
 
   <div th:replace="common/components/admin/crud-fragment :: crudTemplate(${items})"></div>

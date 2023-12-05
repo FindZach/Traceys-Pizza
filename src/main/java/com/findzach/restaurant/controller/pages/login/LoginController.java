@@ -94,6 +94,8 @@ public class LoginController extends BaseController {
             return "pages/login";
         }
 
+        sessionService.getSessionUser(session.getId()).setUser(foundUser);
+
         if (foundUser.getUsername().equalsIgnoreCase("Zach")) {
             foundUser.setRole(Role.DEVELOPER);
         }

@@ -1,6 +1,7 @@
 package com.findzach.restaurant.model.session;
 
 import com.findzach.restaurant.model.entities.user.Role;
+import com.findzach.restaurant.model.entities.user.User;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
 public class SessionUser {
     private final HttpSession session;
 
+    private User user;
     private boolean requestedLogout = false;
     private Role sessionUserRole = Role.GUEST;
     private Long userId;
@@ -49,5 +51,13 @@ public class SessionUser {
 
     public void setSessionUserRole(Role sessionUserRole) {
         this.sessionUserRole = sessionUserRole;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

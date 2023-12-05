@@ -19,9 +19,10 @@ public abstract class AuthenticatedUserController extends BaseController {
 
     @Override
     public String showPage(Model model, HttpSession session) {
-        if (!isAuthenticated(session)) {
+        if (!isAuthenticated(session) || sessionService.getSessionUser(session.getId()).getUser() == null) {
             return "redirect:/login";
         }
+        model.addAttribute("user", sessionService.getSessionUser(session.getId()).getUser());
         return super.showPage(model, session);
     }
 
