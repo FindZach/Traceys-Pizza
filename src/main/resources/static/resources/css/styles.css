@@ -177,6 +177,25 @@ sup {
   top: -0.5em;
 }
 
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 9999; /* High z-index to be on top */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    display: flex;
+}
+
+#pizza {
+    /* Style your canvas as needed, perhaps as a spinner */
+}
+
+
 a {
   color: #fc766a;
   text-decoration: none;

@@ -1,0 +1,24 @@
+<th:block th:fragment="popularItems" xmlns:th="http://www.w3.org/1999/xhtml">
+<section class="page-section portfolio bg-white" id="portfolio">
+  <div class="container-fluid">
+    <!-- Portfolio Section Heading-->
+    <div class="text-center">
+      <h2 class="page-section-heading text-secondary mb-0 d-inline-block">POPULAR MENU ITEMS</h2>
+    </div>
+    <!-- Icon Divider-->
+    <div class="divider-custom">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon"><i class="fas fa-utensils"></i></div>
+      <div class="divider-custom-line"></div>
+    </div>
+    <!-- Portfolio Grid Items-->
+    <div class="row">
+      <div th:each="item: ${items}" class="col-md-6 col-lg-4 mb-5">
+        <span th:replace="common/fragments/menu/dish-display :: displayDish(${item})"></span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+</th:block>

@@ -17,8 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Zach S <zach@findzach.com>
@@ -50,6 +52,7 @@ public class Bootstrap implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        /*
         Employee employee = new Employee();
 
         employee.setBirthday(new Date());
@@ -96,6 +99,32 @@ public class Bootstrap implements CommandLineRunner {
 
         dishRepository.save(dish);
 
+        List<Topping> toppings = new ArrayList<>();
+
+        Topping cheese = new Topping();
+        Topping tomato = new Topping();
+        Topping relish = new Topping();
+        Topping mayo = new Topping();
+        Topping mustard = new Topping();
+        toppings.add(cheese);
+        toppings.add(tomato);
+        toppings.add(relish);
+        toppings.add(mayo);
+        toppings.add(mustard);
+        cheese.setItemName("Cheese");
+        cheese.setPrice(.75);
+        tomato.setItemName("Tomato");
+        tomato.setPrice(.75);
+        relish.setItemName("Relish");
+        relish.setPrice(.75);
+        mayo.setItemName("Mayo");
+        mayo.setPrice(.75);
+        mustard.setItemName("Mustard");
+        mustard.setPrice(.75);
+
+        toppingRepository.saveAll(toppings);
+
+         */
 
     }
 }

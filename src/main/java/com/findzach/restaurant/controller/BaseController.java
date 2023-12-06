@@ -3,6 +3,7 @@ package com.findzach.restaurant.controller;
 import com.findzach.restaurant.controller.pages.PizzaPage;
 import com.findzach.restaurant.model.entities.user.Role;
 import com.findzach.restaurant.model.session.SessionUser;
+import com.findzach.restaurant.repository.food.ToppingRepository;
 import com.findzach.restaurant.service.attributes.impl.DefaultAttributeService;
 import com.findzach.restaurant.service.session.SessionService;
 import org.slf4j.Logger;
@@ -27,6 +28,9 @@ public abstract class BaseController implements PizzaPage {
     private DefaultAttributeService defaultAttributeService;
 
     @Autowired
+    private ToppingRepository toppingRepository;
+
+    @Autowired
     public BaseController(SessionService sessionService, String baseTemplateRoute) {
         this.sessionService = sessionService;
         this.baseTemplateRoute = baseTemplateRoute;
@@ -36,6 +40,12 @@ public abstract class BaseController implements PizzaPage {
     public String showPage(Model model, HttpSession session) {
         SessionUser sessionUser = sessionService.getSessionUser(session.getId());
         setDefaults(model, defaultAttributeService);
+
+        model.addAttribute("items", toppingRepository.findAll());
+
+
+        //TODO: Service for role management
+        model.addAttribute("role", sessionUser != null ? sessionUser.getSessionUserRole().name() : Role.GUEST.name());
 
         if (sessionUser != null && sessionUser.getSessionUserRole() != null && sessionUser.getSessionUserRole() != Role.GUEST) {
             model.addAttribute("loginState", "Logout");

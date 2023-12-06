@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
  * @date: 11/26/2023
  * @time: 6:01 PM
  */
-@RestController
 public class CartController {
 
     @GetMapping("/cart/add")

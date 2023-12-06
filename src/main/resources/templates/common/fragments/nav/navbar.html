@@ -1,0 +1,53 @@
+<th:block th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
+        <div class="container">
+            <!-- Add logo image here -->
+            <a class="navbar-brand js-scroll-trigger" id="logoNav" href="/">
+                <img src="/images/logo.png" alt="Tracey Pizza Logo" width="50"> <!-- Adjust the width as needed -->
+                <span th:text="#{business.name}"></span>
+            </a>
+
+            <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded"
+                    type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i
+                    class="fas fa-bars"></i></button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto text-center">
+                    <li class="nav-item mx-0 mx-lg-1"><a id="orderNav"
+                            class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary"
+                            href="/order"><i class="fas fa-utensils"></i> ORDER</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a id="galleryNav" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                                                         href="/gallery"><i class="fas fa-camera"></i> GALLERY</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a
+                           id="contactNav" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary" href="/contact"><i class="fas fa-scroll"></i> CONTACT</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1"><a id="reviewsNav" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                                                         href="/reviews"><i class="fas fa-pen"></i> REVIEWS</a></li>
+
+                    <li class="nav-item mx-0 mx-lg-1" th:unless="${loginState eq 'Logout'}">
+                        <!-- HTML code -->
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary text-white" id="loginJoinLink"
+                           th:href="${loginState eq 'Logout' ? '/logout' : '/login'}">
+                            <span th:text="${loginState eq 'Logout' ? 'LOGOUT' : 'LOGIN / JOIN'}">LOGIN / JOIN</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1" th:if="${loginState eq 'Logout'}">
+                        <!-- Sidebar User Only code -->
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger bg-primary text-white" href="" id="user-sidebar" data-bs-toggle="offcanvas" data-bs-target="#sideMenu">
+                            <i class="fas fa-cogs"></i>
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <div th:if="${loginState eq 'Logout'}" th:replace="common/fragments/nav/user-sidebar :: user-sidebar"></div>
+
+</th:block>

@@ -33,7 +33,6 @@
         button {
             width: 100%;
             padding: 10px;
-            background-color: #007BFF;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -43,27 +42,41 @@
     </style>
 </head>
 <body class="bg-primary">
-<div th:replace="common/fragments/navbar :: navbar"></div>
+<div th:replace="common/fragments/nav/navbar :: navbar"></div>
 <div class="login-container bg-secondary">
   <h2 id="form-title" class="display-4 text-white">Login</h2>
+
+  <div th:if="${errorMsg}" class="alert bg-danger text-white row" role="alert">
+    <div class="col-1">
+      <i class="fas fa-exclamation mt-3 mt-md-1 fs-2"></i>
+    </div>
+    <div class="col-9 mt-1 text-wrap" th:text="${errorMsg}"></div>
+  </div>
+
+  <div th:if="${successMsg}" class="alert bg-success text-white row" role="alert">
+    <div class="col-1 fs-1">
+      <i class="fas fa-check mt-2 mt-md-1 fs-2"></i>
+    </div>
+    <div class="col-9 mt-1 text-wrap" th:text="${successMsg}"></div>
+  </div>
   <form id="login-form" class="login-form" action="/login" method="post">
     <!-- Login form fields (Username and Password) -->
     <input type="text" name="username" placeholder="Username" required />
     <input type="password" name="password" placeholder="Password" required />
-    <button type="submit" onclick="login()">Log In</button>
+    <button class="bg-success" type="submit" onclick="login()">Log In</button>
   </form>
 
   <form id="register-form" class="login-form" action="/register" method="post" style="display: none;">
     <!-- Registration form fields (Username, Password, Name, and Email) -->
-    <input type="text" name="newUsername" placeholder="Username" required />
-    <input type="password" name="newPassword" placeholder="Password" required />
+    <input type="text" name="username" placeholder="Username" required />
+    <input type="password" name="password" placeholder="Password" required />
     <input type="text" name="name" placeholder="Name" required />
     <input type="email" name="email" placeholder="Email" required style="width: 90%; padding: 10px; margin: 5px 0; border: none; color: black; border-radius: 5px;" />
-    <button type="submit">Register</button>
+    <button class="bg-success" type="submit">Register</button>
   </form>
 
 
-  <button class="bg-primary" id="toggle-button">Join</button>
+  <button class="bg-info" id="toggle-button">Join</button>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

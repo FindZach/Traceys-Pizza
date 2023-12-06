@@ -18,6 +18,10 @@ public abstract class BaseEntity {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "creation_date")
     private Date entityCreationDate;
+    @PrePersist
+    protected void onCreate() {
+        entityCreationDate = new Date();
+    }
 
     public long getId() {
         return id;
