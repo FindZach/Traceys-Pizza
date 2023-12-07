@@ -18,7 +18,10 @@ import java.util.Date;
 @DiscriminatorValue("EMPLOYEE")
 public class Employee extends Customer implements Workable {
 
-    private Role role = Role.EMPLOYEE;
+
+    public Employee() {
+        setRole("EMPLOYEE");
+    }
 
     /**
      * @return

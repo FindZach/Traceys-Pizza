@@ -2,8 +2,6 @@ package com.findzach.restaurant.service;
 
 import com.findzach.restaurant.model.BaseEntity;
 
-import java.util.List;
-
 /**
  * @author: Zach Smith
  * @date: 12/3/2023

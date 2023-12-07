@@ -58,7 +58,7 @@ public class LoginController extends BaseController {
 
         String hashedPassword = passwordEncoder.encode(password);
         model.addAttribute("successMsg", "Account \'" + username + "\' has been properly created!");
-        Employee customer = new Employee();
+        Customer customer = new Customer();
         customer.setUsername(username);
         customer.setPassword(hashedPassword);
         customer.setEmail(email);

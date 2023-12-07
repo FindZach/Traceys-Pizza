@@ -14,14 +14,8 @@ import java.util.Date;
 @Entity
 @DiscriminatorValue("CUSTOMER")
 public class Customer extends User {
-    private Role role = Role.CUSTOMER;
 
-    @Override
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = Role.valueOf(role);
+    public Customer() {
+        setRole("CUSTOMER");
     }
 }
