@@ -93,7 +93,7 @@ public class DishController implements PizzaPage {
 
         FoodItem beefPatty = new FoodItem();
         beefPatty.setPrice(.85);
-        beefPatty.setMenuType(MenuType.A_LA_CARTE);
+        beefPatty.setMenuType(MenuType.FOOD_ITEM);
 
         beefPatty.setItemName("16oz Beef Patty");
         beefPatty.setDescription("100% all beef patty");

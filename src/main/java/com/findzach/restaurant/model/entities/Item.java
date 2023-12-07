@@ -1,6 +1,7 @@
 package com.findzach.restaurant.model.entities;
 
 import com.findzach.restaurant.model.BaseEntity;
+import com.findzach.restaurant.model.entities.menu.Category;
 import com.findzach.restaurant.model.entities.menu.MenuType;
 
 import javax.persistence.EnumType;
@@ -16,19 +17,20 @@ import javax.persistence.MappedSuperclass;
  */
 @MappedSuperclass
 public abstract class Item extends BaseEntity {
-
     protected String itemName;
     protected String description;
 
     @Enumerated(EnumType.STRING)
     private MenuType menuType;
 
+    @Enumerated(EnumType.STRING)
+    private Category category;
+
     private double price;
-    //The amount of this item
     private int amount;
 
     @Lob
-    private String base64Image; // Field to store the image
+    private String base64Image;
 
     public String getItemName() {
         return itemName;

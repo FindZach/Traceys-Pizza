@@ -6,19 +6,9 @@ package com.findzach.restaurant.model.entities.menu;
  * @time: 7:26 PM
  */
 public enum MenuType {
-
-    ENTREE(),
-    APPETIZER(),
-    DESSERT(),
-    DINNER(),
-    BREAKFAST(),
-    LUNCH(),
-    SPECIAL(),
-    SOUP(),
-    DRINK(),
-    ALCOHOL(),
-    PIZZA(),
-    TOPPING(),
-    A_LA_CARTE()
-
+    DISH,
+    FOOD_ITEM,
+    TOPPING,
+    DRINK
+    // Add more types as needed
 }

@@ -1,6 +1,8 @@
 package com.findzach.restaurant.service.attributes.impl;
 
 import com.findzach.restaurant.model.entities.food.topping.Topping;
+import com.findzach.restaurant.model.entities.menu.Category;
+import com.findzach.restaurant.model.entities.menu.MenuType;
 import com.findzach.restaurant.repository.food.ToppingRepository;
 import com.findzach.restaurant.service.attributes.AttributeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,9 @@ public class DefaultAttributeService implements AttributeService<Object, String>
     public DefaultAttributeService() {
         defaultAttributes.put("currentYear", Calendar.getInstance().get(Calendar.YEAR));
         defaultAttributes.put("loginState", "LOGIN / JOIN");
+
+        defaultAttributes.put("categoriesList", Category.values());
+        defaultAttributes.put("menuTypes", MenuType.values());
     }
 
     private List<Topping> formToppingsList() {
