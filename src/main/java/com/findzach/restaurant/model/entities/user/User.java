@@ -2,12 +2,12 @@ package com.findzach.restaurant.model.entities.user;
 
 import com.findzach.restaurant.model.BaseEntity;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.util.Date;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class User extends BaseEntity {
 
     private String username;
@@ -95,8 +95,8 @@ public abstract class User extends BaseEntity {
         this.birthday = birthday;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRole(String role) {
+        this.role = Role.valueOf(role);
     }
 
     public void setPoints(int points) {

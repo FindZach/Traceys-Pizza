@@ -36,7 +36,9 @@
     <div th:replace="common/fragments/item/add :: addItem"></div>
   </div>
 
-  <div th:replace="common/components/admin/crud-fragment :: crudTemplate(${items})"></div>
+  <div class="mt-5">
+    <div th:replace="common/components/admin/crud-fragment :: crudTemplate(${items})"></div>
+  </div>
 
   <div class="row"> <!-- Add this row to contain the cards -->
     <div th:replace="common/fragments/portal/current-balance :: balanceCard('Current Balance', '$102.30', '5')"></div>

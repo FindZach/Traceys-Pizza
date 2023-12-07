@@ -55,10 +55,19 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     /**
+     * @param object
+     * @return
+     */
+    @Override
+    public Employee save(Employee object) {
+        return employeeRepository.save(object);
+    }
+
+    /**
      * @param username
      * @return
      */
-    public List<Employee> findByUsername(String username) {
-        return null;
+    public Employee findByUsername(String username) {
+        return employeeRepository.findEmployeeByUsername(username);
     }
 }

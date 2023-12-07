@@ -51,6 +51,15 @@ public class SessionService implements CrudService<SessionUser, String> {
         return true;
     }
 
+    /**
+     * @param object
+     * @return
+     */
+    @Override
+    public SessionUser save(SessionUser object) {
+        return null;
+    }
+
     public boolean isAuthenticated(HttpSession session) {
         return getSessionUser(session.getId()).getSessionUserRole() != null && getSessionUser(session.getId()).getSessionUserRole() != Role.GUEST;
     }
