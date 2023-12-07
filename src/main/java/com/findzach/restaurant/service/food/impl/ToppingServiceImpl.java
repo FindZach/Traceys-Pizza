@@ -66,4 +66,13 @@ public class ToppingServiceImpl implements ToppingService {
         toppingRepository.deleteById(aLong);
         return true;
     }
+
+    /**
+     * @param object
+     * @return
+     */
+    @Override
+    public Topping save(Topping object) {
+        return toppingRepository.save(object);
+    }
 }

@@ -71,6 +71,15 @@ public class RequestTicketServiceImpl implements RequestTicketService {
     }
 
     /**
+     * @param object
+     * @return
+     */
+    @Override
+    public RequestTicket save(RequestTicket object) {
+        return requestTicketRepository.save(object);
+    }
+
+    /**
      * @param status The TicketStatus you want to find
      * @return List<RequestTicket> All of the RequestTickets with the specific TicketStatus
      */

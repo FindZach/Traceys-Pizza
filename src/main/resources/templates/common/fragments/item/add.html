@@ -1,7 +1,7 @@
 <th:block th:fragment="addItem" xmlns:th="http://www.w3.org/1999/xhtml">
-  <div class="container mt-4">
-    <h2>Add New Item</h2>
-    <form th:action="@{/addItem}" method="post" enctype="multipart/form-data" class="row g-3">
+  <div class="container mt-4 card rounded">
+    <h2 class="card-title text-center">Add New Item</h2>
+    <form th:action="@{/addItem}" method="post" enctype="multipart/form-data" class="row g-3 card-body">
       <div class="col-md-6">
         <label for="itemName" class="form-label">Item Name:</label>
         <input type="text" class="form-control" id="itemName" name="itemName" required />

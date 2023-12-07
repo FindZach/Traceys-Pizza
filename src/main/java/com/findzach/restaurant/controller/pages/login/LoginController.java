@@ -5,9 +5,13 @@ import com.findzach.restaurant.controller.rest.CustomerController;
 import com.findzach.restaurant.model.entities.user.Role;
 import com.findzach.restaurant.model.entities.user.User;
 import com.findzach.restaurant.model.entities.user.customer.Customer;
+import com.findzach.restaurant.model.entities.user.employee.Employee;
 import com.findzach.restaurant.model.session.SessionUser;
+import com.findzach.restaurant.service.CrudService;
 import com.findzach.restaurant.service.session.SessionService;
 import com.findzach.restaurant.service.user.CustomerService;
+import com.findzach.restaurant.service.user.EmployeeService;
+import com.findzach.restaurant.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -22,16 +26,16 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class LoginController extends BaseController {
 
-    @Autowired
     private final SessionService sessionService;
-    private final CustomerService customerService;
+    private final UserService userService;
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public LoginController(CustomerService customerService, SessionService sessionService) {
+    @Autowired
+    public LoginController(UserService userService, SessionService sessionService) {
         super(sessionService, "pages/login");
         this.sessionService = sessionService;
-        this.customerService = customerService;
+        this.userService = userService;
     }
 
     @PostMapping("/register")
@@ -45,8 +49,8 @@ public class LoginController extends BaseController {
             return "pages/login";
         }
 
+        User foundUser = userService.findByUsername(username);
 
-        User foundUser = customerService.findByUsername(username);
         if (foundUser != null) {
             model.addAttribute("errorMsg", "Username has been already taken!");
             return "pages/login";
@@ -54,13 +58,13 @@ public class LoginController extends BaseController {
 
         String hashedPassword = passwordEncoder.encode(password);
         model.addAttribute("successMsg", "Account \'" + username + "\' has been properly created!");
-        Customer customer = new Customer();
+        Employee customer = new Employee();
         customer.setUsername(username);
         customer.setPassword(hashedPassword);
         customer.setEmail(email);
         customer.setFirstName(name);
 
-        customerService.create(customer);
+        userService.create(customer);
         return "pages/login";
     }
     @GetMapping("/login")
@@ -87,7 +91,7 @@ public class LoginController extends BaseController {
         // Add your authentication logic here
 
 
-        User foundUser = customerService.findByUsername(username);
+        User foundUser = userService.findByUsername(username);
 
         if (username.isBlank() || password.isBlank() || foundUser == null || !passwordEncoder.matches(password, foundUser.getPassword())) {
             model.addAttribute("errorMsg", "Invalid username or password!");
@@ -95,10 +99,13 @@ public class LoginController extends BaseController {
         }
 
         sessionService.getSessionUser(session.getId()).setUser(foundUser);
+        System.out.println("Role: " + foundUser.getRole());
 
-        if (foundUser.getUsername().equalsIgnoreCase("Zach")) {
-            foundUser.setRole(Role.DEVELOPER);
+        if (foundUser.getUsername().equalsIgnoreCase("Zach") && foundUser.getRole() != Role.DEVELOPER) {
+            foundUser.setRole("DEVELOPER");
+            userService.save(foundUser);
         }
+
         if (sessionService.getSessionUser(session.getId()) != null)
             sessionService.getSessionUser(session.getId()).setRole(foundUser.getRole() != null ? foundUser.getRole() : Role.CUSTOMER);
 
