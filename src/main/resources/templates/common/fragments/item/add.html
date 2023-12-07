@@ -1,7 +1,7 @@
 <th:block th:fragment="addItem" xmlns:th="http://www.w3.org/1999/xhtml">
   <div class="container mt-4 card rounded">
-    <h2 class="card-title text-center">Add New Item</h2>
-    <form th:action="@{/addItem}" method="post" enctype="multipart/form-data" class="row g-3 card-body">
+    <h2 class="card-header text-center">Add New Food / Dish</h2>
+    <form th:action="@{/addItem}" method="post" enctype="multipart/form-data" class="row card-body">
       <div class="col-md-6">
         <label for="itemName" class="form-label">Item Name:</label>
         <input type="text" class="form-control" id="itemName" name="itemName" required />
@@ -21,14 +21,27 @@
       <div class="col-md-4">
         <label for="itemType" class="form-label">Item Type:</label>
         <select id="itemType" name="itemType" class="form-select">
-          <option value="Food">Food</option>
-          <option value="Topping">Topping</option>
-          <option value="Dish">Dish</option>
+          <option th:each="menuType : ${menuTypes}"
+                  th:value="${menuType.name}"
+                  th:text="${menuType.name}">
+          </option>
         </select>
       </div>
+
+      <div class="col-md-8">
+        <label for="itemCategory" class="form-label">Category:</label>
+        <select id="itemCategory" name="itemCategory" class="form-select" multiple>
+          <option th:each="category : ${categoriesList}"
+                  th:value="${category.name}"
+                  th:text="${category.name}">
+          </option>
+        </select>
+      </div>
+
       <div class="col-12">
         <button type="submit" class="btn btn-primary">Add Item</button>
       </div>
     </form>
   </div>
+
 </th:block>
