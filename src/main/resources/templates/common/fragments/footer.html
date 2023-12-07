@@ -36,6 +36,8 @@
         </div>-->
 
     </footer>
+    <!-- Include the shopping cart fragment -->
+    <div th:replace="common/fragments/order/shopping-cart :: shoppingCartFragment"></div>
     <section class="copyright py-4 text-white">
         <div class="container text-center"><small class="pre-wrap ">Copyright © <span th:text="#{business.name}"></span> <span th:text="${currentYear}"></span></small></div>
         <span class="container text-left"><small class="pre-wrap">Web Version <span th:text="#{web.version}"></span></small></span>
@@ -103,4 +105,5 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log('Markup found:' + markupStr);
       }
     </script>
+    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
 </th:block>
