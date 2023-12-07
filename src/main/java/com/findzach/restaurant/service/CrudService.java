@@ -22,4 +22,6 @@ public interface CrudService<T, ID> {
      * @return - True if deleted, false if no record exists
      */
     boolean deleteById(ID id);
+
+    T save(T object);
 }

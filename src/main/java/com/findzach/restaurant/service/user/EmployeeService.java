@@ -8,6 +8,6 @@ import com.findzach.restaurant.service.CrudService;
  * @author Zach <zach@findzach.com>
  * @since 9/17/2021
  */
-public interface EmployeeService extends BaseEntityCrudService<Employee, Long> {
+public interface EmployeeService extends UserCrudService<Employee, Long> {
 
 }

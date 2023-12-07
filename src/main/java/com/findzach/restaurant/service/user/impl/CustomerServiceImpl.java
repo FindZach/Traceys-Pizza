@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author Zach S <zach@findzach.com>
@@ -65,6 +64,15 @@ public class CustomerServiceImpl implements CustomerService {
             customerRepository.deleteById(aLong);
             return true;
         } else return false;
+    }
+
+    /**
+     * @param object
+     * @return
+     */
+    @Override
+    public Customer save(Customer object) {
+        return customerRepository.save(object);
     }
 
     /**

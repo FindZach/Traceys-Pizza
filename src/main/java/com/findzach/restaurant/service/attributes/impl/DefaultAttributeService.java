@@ -114,4 +114,13 @@ public class DefaultAttributeService implements AttributeService<Object, String>
         return defaultAttributes.keySet().removeIf(key -> selectedKey.equalsIgnoreCase(key));
     }
 
+    /**
+     * @param object
+     * @return
+     */
+    @Override
+    public Object save(Object object) {
+        return null;
+    }
+
 }
