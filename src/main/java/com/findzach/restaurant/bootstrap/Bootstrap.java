@@ -1,13 +1,5 @@
 package com.findzach.restaurant.bootstrap;
 
-import com.findzach.restaurant.model.entities.food.Dish;
-import com.findzach.restaurant.model.entities.food.FoodItem;
-import com.findzach.restaurant.model.entities.food.topping.Topping;
-import com.findzach.restaurant.model.entities.food.topping.ToppingQuantity;
-import com.findzach.restaurant.model.entities.user.Role;
-import com.findzach.restaurant.model.entities.user.customer.Customer;
-import com.findzach.restaurant.model.entities.user.employee.Employee;
-import com.findzach.restaurant.model.entities.menu.MenuType;
 import com.findzach.restaurant.repository.food.DishRepository;
 import com.findzach.restaurant.repository.food.FoodItemRepository;
 import com.findzach.restaurant.repository.food.ToppingRepository;
@@ -16,11 +8,6 @@ import com.findzach.restaurant.service.user.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
 
 /**
  * @author Zach S <zach@findzach.com>
